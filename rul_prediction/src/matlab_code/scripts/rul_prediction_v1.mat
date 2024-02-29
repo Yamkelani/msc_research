@@ -1,5 +1,0 @@
-%Read in data 
-
-path = "/home/yamukelani/source_code/msc_research/rul_prediction/src/datasets/battery_discharging_data.csv"
-
-battery_data = csvread(path)

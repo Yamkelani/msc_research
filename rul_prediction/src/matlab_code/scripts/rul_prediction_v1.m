@@ -4,6 +4,11 @@
 clc;
 clear;
 
+function dataset = rename_columns(dataset, prefix)
+    for pos=1:numel(dataset.Properties.VariableNames)
+        dataset.Properties.VariableNames{pos} = prefix + dataset.Properties.VariableNames{pos}; 
+end
+
 %Data path
 
 base_path = "/home/yamukelani/source_code/msc_research/rul_prediction/src/datasets";
@@ -22,13 +27,18 @@ battery_charge_data = readtable(bat_charge_path);
 battery_discharge_data = readtable(bat_discharge_path);
 
 %Rename columns
-for pos=1:numel(battery_charge_data.Properties.VariableNames)
-    battery_charge_data.Properties.VariableNames{pos} =  
+battery_charge_data = rename_columns(battery_charge_data , "charge")
+battery_dicharge_data = rename_columns(battery_discharge_data , "discharge")
 
 
 disp("Battery discharge data is:")
-disp(size(battery_data))
-disp(head(battery_data,3))
+disp(size(battery_discharge_data))
+disp(head(battery_discharge_data,3))
+
+
+disp("Battery charging data is:")
+disp(size(battery_charge_data))
+disp(head(battery_charge_data,3))
 
 %Prepare data for modelling
 
@@ -38,13 +48,13 @@ bat_y = battery_data(:,[10]);
 
 [train] = battery_data([1:(0.6*height(battery_data))],[4 5 6 7 8 9 10]);
 [Xtrain] = train(:,[1:6]);
-[Ytrain] =`train(:,[7]);
+%[Ytrain] =`train(:,[7]);
 
 %head(Xtrain,10)
 
 [test] = battery_data([1:(0.4*height(battery_data))],[4 5 6 7 8 9 10]);
 [Xtest] =train(:,[1:6]);
-[Ytest] =train(:,[7]);
+%[Ytest] =train(:,[7]);
 
 model_name = "BatteryCellRULPrediction";
 
