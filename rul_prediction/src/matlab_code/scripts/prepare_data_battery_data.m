@@ -4,7 +4,7 @@
 clear; close all; clc
 
 %Data paths and file names
-base_path = "/home/yamukelani/source_code/msc_research/rul_prediction/src/datasets";
+base_path = "/home/yamukelani/source_code/msc_research/rul_prediction/src/datasets/";
 b0005_path = "B0005.mat";
 b0006_path = "B0006.mat";
 b0007_path = "B0007.mat";
