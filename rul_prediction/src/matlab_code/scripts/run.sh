@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Define the target directory
 target_directory="/home/yamukelani/source_code/msc_research/rul_prediction/src/matlab_code/models"
 
@@ -12,6 +13,6 @@ if [ "$(ls -A "$target_directory")" ]; then
 else
     echo "The models directory is empty. Running MATLAB script..."
     # Replace "your_matlab_script.m" with the name of your MATLAB script
-    matlab -nodisplay -nosplash -nodesktop -r "run('/home/yamukelani/source_code/msc_research/rul_prediction/src/matlab_code/scripts/feature_engineering.m'); exit"
+    matlab -nodisplay -nosplash -nodesktop -r "run('/home/yamukelani/source_code/msc_research/rul_prediction/src/matlab_code/scripts/train_gpr_rul_model.m'); exit"
     echo "Feature engineering script execution completed."
 fi
