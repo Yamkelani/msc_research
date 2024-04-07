@@ -48,7 +48,7 @@ bat_discharge_seg = bat_discharging_data(:,[3,5,6,7,8,9,10,11]);
 %ACalculate other features such state of charge.
 
 %Get training and test data
-split = 0.70;
+split = 0.010;
 %data_len = 
 split_num = round(split*height(bat_discharge_seg))
 logMessage = sprintf('The split number is %0.5g records.\n', split_num);
@@ -86,24 +86,45 @@ disp("============================================================== Now trainin
 logMessage = sprintf('============================================================== Now training RUL prediction model ==============================================================================.\n', height(bat_discharge_test));
 fprintf(logFile, logMessage);
 
-rulModel = fitrgp(bat_discharge_train,'Capacity','KernelFunction','ardsquaredexponential',...
-      'FitMethod','sr','PredictMethod','fic','Standardize',1);
+try
+    rulModel = fitrgp(bat_discharge_train,'Capacity','KernelFunction','ardsquaredexponential',...
+        'FitMethod','sr','PredictMethod','fic','Standardize',1);
+
+    disp(rulModel)
+    %logMessage = sprintf('Model informations is as follows.\n', rulModel);
+    %fprintf(logFile, logMessage);
 
 
-logMessage = sprintf('Model informations is as follows.\n', rulModel);
-fprintf(logFile, logMessage);
+    saveLearnerForCoder(rulMModel,'rulModel');
 
+    %ypred = resubPredict(rulModel);
+catch ME 
+    switch ME.identifier
+        case 'MATLAB:UndefinedFunction'
+            warning('Function is undefined.  Assigning a value of NaN.');
+            logMessage = sprintf('Function is undefined.  Assigning a value of NaN.\n', rulModel);
+            fprintf(logFile, logMessage);
+            rulModel = NaN;
+            ypred = NaN;
 
-saveLearnerForCoder(rulMModel,'MyModel');
-
-ypred = resubPredict(rulMdl);
+        case 'MATLAB:scriptNotAFunction'
+            warning(['Attempting to execute script as function. '...
+                'Running script and assigning output a value of 0.']);
+            notaFunction;
+            rulModel = 0;
+            ypred = 0;
+        otherwise
+            rethrow(ME)
+            fprintf(logFile,ME)
+            
+    end
+end
 
 
 disp("=============================================================RUL prediction model training has completed. ======================================================================")
 
 disp("The trained model is shown below:")
 
-print(rul_model)
 
 % Close the log file
 fclose(logFile);
