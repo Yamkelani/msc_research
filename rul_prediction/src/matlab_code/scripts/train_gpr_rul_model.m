@@ -4,7 +4,7 @@ clc;
 
 %% Read in data for battery charging and discharging.
 base_path = "/home/yamukelani/source_code/msc_research/rul_prediction/src";
-model_path = "/matlab_code/models/";
+model_path = "/matlab_code/models/gpr_rul_model.mat";
 model_name = "rul_model";
 
 % Define the log file name and path
@@ -40,22 +40,26 @@ fprintf(logFile, logMessage);
 logMessage = sprintf('Discharging data has a total of %0.5g records.\n', height(bat_discharging_data));
 fprintf(logFile, logMessage);
 
+charge_columns = ["Ambient_temperature", "Voltage_measured", "Current_measured", "Temperature_measured", "Current_charge", "Voltage_charge", "Charge_Time"]
+discharge_columns = ["Ambient_temperature", "Voltage_measured", "Current_measured", "Temperature_measured", "Current_load", "Voltage_load", "Discharge_time","Capacity"]
+features = ["Ambient_temperature", "Voltage_measured", "Current_measured", "Temperature_measured", "Current_load", "Voltage_load","Capacity"]
 
-bat_charge_seg = bat_charging_data(:,[3,5,6,7,8,9,10]);
 
-bat_discharge_seg = bat_discharging_data(:,[3,5,6,7,8,9,10,11]);
+bat_charge_seg = bat_charging_data(:,charge_columns);
+
+bat_discharge_seg = bat_discharging_data(:,discharge_columns);
 
 %ACalculate other features such state of charge.
 
 %Get training and test data
-split = 0.010;
+split = 0.70;
 %data_len = 
 split_num = round(split*height(bat_discharge_seg))
 logMessage = sprintf('The split number is %0.5g records.\n', split_num);
 fprintf(logFile, logMessage);
 
 bat_discharge_train = bat_discharge_seg(1:split_num,:);
-X_bat_discharge_train = bat_discharge_train(:,[1,2,3,4,5,6,7]);
+X_bat_discharge_train = bat_discharge_train(:,features);
 Y_bat_discharge_train = bat_discharge_train(:,[8]);
 
 logMessage = sprintf('Training data has a total of %0.5g records.\n', height(bat_discharge_train));
@@ -63,8 +67,8 @@ fprintf(logFile, logMessage);
 
 bat_discharge_test = bat_discharge_seg(split_num:end,:);
 num_recs_test = height(bat_discharge_test)
-X_bat_discharge_test = bat_discharge_test(:,[1,2,3,4,5,6,7]) ;
-Y_bat_discharge_test = bat_discharge_test(:,[8]) ;
+X_bat_discharge_test = bat_discharge_test(:,features) ;
+Y_bat_discharge_test = bat_discharge_test(:,["Capacity"]) ;
 
 logMessage = sprintf('Testing data has a total of %0.5g records.\n', num_recs_test);
 fprintf(logFile, logMessage);
@@ -87,15 +91,29 @@ logMessage = sprintf('==========================================================
 fprintf(logFile, logMessage);
 
 try
+
+    gpr_options = struct(...
+    'KernelFunction', 'squaredexponential', ... % Kernel function (other options include 'matern52', 'matern32', 'matern12', etc.)
+    'Sigma', 0.2, ... % Initial noise standard deviation
+    'Standardize', true ... % Standardize inputs and outputs
+);
     rulModel = fitrgp(bat_discharge_train,'Capacity','KernelFunction','ardsquaredexponential',...
         'FitMethod','sr','PredictMethod','fic','Standardize',1);
 
+    currentTime = datestr(now, 'yyyy-mm-dd HH:MM:SS');   
+    logMessage = sprintf('The model was generated at:  %s', currentTime );
+    fprintf(logFile, logMessage);
     disp(rulModel)
+
+
+    % Save the GPR model to a .mat file
+    save(base_path+model_path, 'rulModel');
+
     %logMessage = sprintf('Model informations is as follows.\n', rulModel);
     %fprintf(logFile, logMessage);
 
 
-    saveLearnerForCoder(rulMModel,'rulModel');
+    %saveLearnerForCoder(rulMModel,'rulModel');
 
     %ypred = resubPredict(rulModel);
 catch ME 
@@ -122,8 +140,6 @@ end
 
 
 disp("=============================================================RUL prediction model training has completed. ======================================================================")
-
-disp("The trained model is shown below:")
 
 
 % Close the log file

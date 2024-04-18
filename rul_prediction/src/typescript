@@ -1,0 +1,823 @@
+Script started on 2024-04-17 22:25:12+02:00 [TERM="xterm-256color" TTY="/dev/pts/14" COLUMNS="139" LINES="6"]
+(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src[00m$ clear
+[H[2J[3J(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src[00m$ cs matlab_code/scripts/
+
+Command 'cs' not found, but can be installed with:
+
+apt install csound
+Please ask your administrator.
+
+(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src[00m$ clear
+[H[2J[3J(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src[00m$ cd sc[K[Kmatlab_code/scripts/
+(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clear
+[H[2J[3J(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ sh run.sh 
+The models directory is empty. Running MATLAB script...
+run.sh: 16: matlab: not found
+Feature engineering script execution completed.
+(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clear
+[H[2J[3J(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clearsh run.sh [5Pcleard matlab_code/scripts/lear[Ks matlab_code/scripts/lear[Ksh run.sh [5Pclearsh run.sh [5Pcleard scripts/ls[Kcleard source_code/msc_research/rul_prediction/src/matlab_code/[A(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ [Clear[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssh -L 8080:localhost:8080 -L 8888:localhost:8888 dica10[A(base) ]0;yamukelani@jaguar1: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@jaguar1[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ [Ch run.sh [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csh -L 8080:localhost:8080 -L 8888:localhost:8888 dica10
+yamukelani@dica10's password: 
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-174-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+3 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '22.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+22 updates could not be installed automatically. For more details,
+see /var/log/unattended-upgrades/unattended-upgrades.log
+*** /dev/sda2 will be checked for errors at next reboot ***
+
+*** System restart required ***
+Last login: Wed Apr 17 11:17:15 2024 from 192.168.1.1
+(base) ]0;yamukelani@dica10: ~[01;32myamukelani@dica10[00m:[01;34m~[00m$ sh run.sh [5Pclear
+[H[2J[3J(base) ]0;yamukelani@dica10: ~[01;32myamukelani@dica10[00m:[01;34m~[00m$ clearsh run.sh [5Pclearsh run.sh [5Pcleard scripts/ls[Kcleard source_code/msc_research/rul_prediction/src/matlab_code/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clear[Kd source_code/msc_research/rul_prediction/src/matlab_code/
+(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code[00m$ cd s[Kscripts/
+(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clear
+[H[2J[3J(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ cleard scripts/ource_code/msc_research/rul_prediction/src/matlab_code/[A(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ [Clear[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csh run.sh 
+The models directory is empty. Running MATLAB script...
+[?1h=
+                                                          < M A T L A B (R) >
+                                                Copyright 1984-2023 The MathWorks, Inc.
+                                               R2023b (23.2.0.2365128) 64-bit (glnxa64)
+                                                            August 23, 2023
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[H[2J
+charge_columns = 
+
+  1x7 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_charge"    "Voltage_charge"
+
+  Column 7
+
+    "Charge_Time"
+
+
+discharge_columns = 
+
+  1x8 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+  Columns 7 through 8
+
+    "Discharge_time"    "Capacity"
+
+
+features = 
+
+  1x6 string array
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+
+split_num =
+
+        1857
+
+
+num_recs_test =
+
+      183865
+
+The input X battery discharging training data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  4.1915            -0.0049016               24.33             -0.0006              0    
+            24                  4.1907             -0.001478              24.326             -0.0006          4.206    
+            24                  3.9749               -2.0125              24.389             -1.9982          3.062    
+            24                  3.9517                -2.014              24.545             -1.9982           3.03    
+            24                  3.9344               -2.0111              24.731             -1.9982          3.011    
+            24                  3.9201                -2.013               24.91             -1.9982          2.991    
+            24                  3.9079               -2.0144              25.106             -1.9982          2.977    
+            24                   3.897               -2.0116              25.317             -1.9982          2.967    
+            24                  3.8875                -2.018              25.509             -1.9982          2.959    
+            24                   3.879               -2.0131              25.704             -1.9982          2.951    
+
+The Y target training data is as follows
+    Capacity
+    ________
+
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+
+The input Y target test battery discharge data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  3.5147             -2.0115                33.066             -1.9982          2.578    
+            24                  3.5127             -2.0118                33.121             -1.9982          2.576    
+            24                  3.5107              -2.013                33.164             -1.9982          2.574    
+            24                  3.5088             -2.0117                33.207             -1.9982          2.573    
+            24                  3.5067              -2.012                33.265             -1.9982           2.57    
+            24                  3.5047             -2.0114                33.305             -1.9982          2.569    
+            24                  3.5031             -2.0125                 33.36             -1.9982          2.567    
+            24                   3.501             -2.0154                33.403             -1.9982          2.565    
+            24                  3.4991             -2.0112                33.461             -1.9982          2.564    
+            24                  3.4975             -2.0134                33.503             -1.9982          2.561    
+
+The Y target test battery discharging data is as follows
+    Capacity
+    ________
+
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+
+============================================================== Now training RUL prediction model ==============================================================================
+  RegressionGP
+           PredictorNames: {1x7 cell}
+             ResponseName: 'Capacity'
+    CategoricalPredictors: []
+        ResponseTransform: 'none'
+          NumObservations: 1857
+           KernelFunction: 'ARDSquaredExponential'
+        KernelInformation: [1x1 struct]
+            BasisFunction: 'Constant'
+                     Beta: 2.3845
+                    Sigma: 0.0024
+        PredictorLocation: [7x1 double]
+           PredictorScale: [7x1 double]
+                    Alpha: [1000x1 double]
+         ActiveSetVectors: [1000x7 double]
+            PredictMethod: 'FIC'
+            ActiveSetSize: 1000
+                FitMethod: 'SR'
+          ActiveSetMethod: 'Random'
+        IsActiveSetVector: [1857x1 logical]
+            LogLikelihood: 8.1410e+03
+         ActiveSetHistory: [1x1 struct]
+           BCDInformation: []
+
+
+[Warning: Function is undefined.  Assigning a value of NaN.] 
+[> In train_gpr_rul_model (line 114)
+In run (line 99)] 
+=============================================================RUL prediction model training has completed. ======================================================================
+The trained model is shown below:
+[?1l>Feature engineering script execution completed.
+(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ [K(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ [K(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ [K(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clear
+[H[2J[3J(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clearsh run.sh 
+The models directory is empty. Running MATLAB script...
+[?1h=
+                                                               < M A T L A B (R) >
+                                                     Copyright 1984-2023 The MathWorks, Inc.
+                                                    R2023b (23.2.0.2365128) 64-bit (glnxa64)
+                                                                 August 23, 2023
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[H[2J{Operation terminated by user during matlab.io.text.internal.TabularTextReader/read
+
+
+In matlab.io.internal.functions.ReadTableWithImportOptionsText/executeImpl (line 61)
+            [T, info] = rdr.read();
+
+In matlab.io.internal.functions.ReadTableWithImportOptions/executeImpl (line 25)
+                [T,func] = func.executeImpl@matlab.io.internal.functions.ReadTableWithImportOptionsText(supplied);
+
+In matlab.io.internal.functions.ReadTableWithImportOptionsText/execute (line 66)
+            T = func.executeImpl(supplied);
+
+In matlab.io.internal.functions.ReadTableWithImportOptions/execute (line 45)
+                T = func.execute@matlab.io.internal.functions.ReadTableWithImportOptionsText(supplied);
+
+In matlab.io.internal.functions.ReadTable/execute (line 46)
+            t = func.execute@matlab.io.internal.functions.ReadTableWithImportOptions(supplied);
+
+In matlab.io.internal.functions.ExecutableFunction/validateAndExecute (line 68)
+            [varargout{1:nargout}] = func.execute(supplied,additionalArgs{:});
+
+In readtable (line 514)
+        t = func.validateAndExecute(filename,varargin{:});
+
+In train_gpr_rul_model (line 33)
+bat_charging_data = readtable(base_path+"/datasets/all_batteries_charging_data.csv");
+
+In run (line 99)
+evalin('caller', strcat(script, ';'));
+} 
+{Operation terminated by user during matlab.io.text.internal.TabularTextReader/read
+
+
+In matlab.io.internal.functions.ReadTableWithImportOptionsText/executeImpl (line 61)
+            [T, info] = rdr.read();
+
+In matlab.io.internal.functions.ReadTableWithImportOptions/executeImpl (line 25)
+                [T,func] = func.executeImpl@matlab.io.internal.functions.ReadTableWithImportOptionsText(supplied);
+
+In matlab.io.internal.functions.ReadTableWithImportOptionsText/execute (line 66)
+            T = func.executeImpl(supplied);
+
+In matlab.io.internal.functions.ReadTableWithImportOptions/execute (line 45)
+                T = func.execute@matlab.io.internal.functions.ReadTableWithImportOptionsText(supplied);
+
+In matlab.io.internal.functions.ReadTable/execute (line 46)
+            t = func.execute@matlab.io.internal.functions.ReadTableWithImportOptions(supplied);
+
+In matlab.io.internal.functions.ExecutableFunction/validateAndExecute (line 68)
+            [varargout{1:nargout}] = func.execute(supplied,additionalArgs{:});
+
+In readtable (line 514)
+        t = func.validateAndExecute(filename,varargin{:});
+
+In train_gpr_rul_model (line 33)
+bat_charging_data = readtable(base_path+"/datasets/all_batteries_charging_data.csv");
+
+In run (line 99)
+evalin('caller', strcat(script, ';'));
+} 
+
+>> exit
+[?1l>
+(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ sh run.sh [5Pclear
+[H[2J[3J(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clearsh run.sh 
+The models directory is empty. Running MATLAB script...
+[?1h=
+                                                               < M A T L A B (R) >
+                                                     Copyright 1984-2023 The MathWorks, Inc.
+                                                    R2023b (23.2.0.2365128) 64-bit (glnxa64)
+                                                                 August 23, 2023
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[H[2J
+charge_columns = 
+
+  1x7 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_charge"    "Voltage_charge"
+
+  Column 7
+
+    "Charge_Time"
+
+
+discharge_columns = 
+
+  1x8 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+  Columns 7 through 8
+
+    "Discharge_time"    "Capacity"
+
+
+features = 
+
+  1x6 string array
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+
+split_num =
+
+        1857
+
+
+num_recs_test =
+
+      183865
+
+The input X battery discharging training data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  4.1915            -0.0049016               24.33             -0.0006              0    
+            24                  4.1907             -0.001478              24.326             -0.0006          4.206    
+            24                  3.9749               -2.0125              24.389             -1.9982          3.062    
+            24                  3.9517                -2.014              24.545             -1.9982           3.03    
+            24                  3.9344               -2.0111              24.731             -1.9982          3.011    
+            24                  3.9201                -2.013               24.91             -1.9982          2.991    
+            24                  3.9079               -2.0144              25.106             -1.9982          2.977    
+            24                   3.897               -2.0116              25.317             -1.9982          2.967    
+            24                  3.8875                -2.018              25.509             -1.9982          2.959    
+            24                   3.879               -2.0131              25.704             -1.9982          2.951    
+
+The Y target training data is as follows
+    Capacity
+    ________
+
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+
+The input Y target test battery discharge data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  3.5147             -2.0115                33.066             -1.9982          2.578    
+            24                  3.5127             -2.0118                33.121             -1.9982          2.576    
+            24                  3.5107              -2.013                33.164             -1.9982          2.574    
+            24                  3.5088             -2.0117                33.207             -1.9982          2.573    
+            24                  3.5067              -2.012                33.265             -1.9982           2.57    
+            24                  3.5047             -2.0114                33.305             -1.9982          2.569    
+            24                  3.5031             -2.0125                 33.36             -1.9982          2.567    
+            24                   3.501             -2.0154                33.403             -1.9982          2.565    
+            24                  3.4991             -2.0112                33.461             -1.9982          2.564    
+            24                  3.4975             -2.0134                33.503             -1.9982          2.561    
+
+The Y target test battery discharging data is as follows
+    Capacity
+    ________
+
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+
+============================================================== Now training RUL prediction model ==============================================================================
+  RegressionGP
+           PredictorNames: {1x7 cell}
+             ResponseName: 'Capacity'
+    CategoricalPredictors: []
+        ResponseTransform: 'none'
+          NumObservations: 1857
+           KernelFunction: 'ARDSquaredExponential'
+        KernelInformation: [1x1 struct]
+            BasisFunction: 'Constant'
+                     Beta: 2.3845
+                    Sigma: 0.0024
+        PredictorLocation: [7x1 double]
+           PredictorScale: [7x1 double]
+                    Alpha: [1000x1 double]
+         ActiveSetVectors: [1000x7 double]
+            PredictMethod: 'FIC'
+            ActiveSetSize: 1000
+                FitMethod: 'SR'
+          ActiveSetMethod: 'Random'
+        IsActiveSetVector: [1857x1 logical]
+            LogLikelihood: 8.1410e+03
+         ActiveSetHistory: [1x1 struct]
+           BCDInformation: []
+
+
+{Error using fprintf
+Invalid format.
+
+Error in train_gpr_rul_model (line 107)
+    fprintf(logFile, rulModel);
+
+Error in run (line 99)
+evalin('caller', strcat(script, ';'));
+} 
+>> clc
+[H[2J>> exit
+[?1l>Feature engineering script execution completed.
+(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clear
+[H[2J[3J(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clearsh run.sh 
+The models directory is empty. Running MATLAB script...
+[?1h=
+                                                               < M A T L A B (R) >
+                                                     Copyright 1984-2023 The MathWorks, Inc.
+                                                    R2023b (23.2.0.2365128) 64-bit (glnxa64)
+                                                                 August 23, 2023
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[H[2J
+charge_columns = 
+
+  1x7 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_charge"    "Voltage_charge"
+
+  Column 7
+
+    "Charge_Time"
+
+
+discharge_columns = 
+
+  1x8 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+  Columns 7 through 8
+
+    "Discharge_time"    "Capacity"
+
+
+features = 
+
+  1x6 string array
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+
+split_num =
+
+        1857
+
+
+num_recs_test =
+
+      183865
+
+The input X battery discharging training data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  4.1915            -0.0049016               24.33             -0.0006              0    
+            24                  4.1907             -0.001478              24.326             -0.0006          4.206    
+            24                  3.9749               -2.0125              24.389             -1.9982          3.062    
+            24                  3.9517                -2.014              24.545             -1.9982           3.03    
+            24                  3.9344               -2.0111              24.731             -1.9982          3.011    
+            24                  3.9201                -2.013               24.91             -1.9982          2.991    
+            24                  3.9079               -2.0144              25.106             -1.9982          2.977    
+            24                   3.897               -2.0116              25.317             -1.9982          2.967    
+            24                  3.8875                -2.018              25.509             -1.9982          2.959    
+            24                   3.879               -2.0131              25.704             -1.9982          2.951    
+
+The Y target training data is as follows
+    Capacity
+    ________
+
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+
+The input Y target test battery discharge data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  3.5147             -2.0115                33.066             -1.9982          2.578    
+            24                  3.5127             -2.0118                33.121             -1.9982          2.576    
+            24                  3.5107              -2.013                33.164             -1.9982          2.574    
+            24                  3.5088             -2.0117                33.207             -1.9982          2.573    
+            24                  3.5067              -2.012                33.265             -1.9982           2.57    
+            24                  3.5047             -2.0114                33.305             -1.9982          2.569    
+            24                  3.5031             -2.0125                 33.36             -1.9982          2.567    
+            24                   3.501             -2.0154                33.403             -1.9982          2.565    
+            24                  3.4991             -2.0112                33.461             -1.9982          2.564    
+            24                  3.4975             -2.0134                33.503             -1.9982          2.561    
+
+The Y target test battery discharging data is as follows
+    Capacity
+    ________
+
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+
+============================================================== Now training RUL prediction model ==============================================================================
+  RegressionGP
+           PredictorNames: {1x7 cell}
+             ResponseName: 'Capacity'
+    CategoricalPredictors: []
+        ResponseTransform: 'none'
+          NumObservations: 1857
+           KernelFunction: 'ARDSquaredExponential'
+        KernelInformation: [1x1 struct]
+            BasisFunction: 'Constant'
+                     Beta: 2.3845
+                    Sigma: 0.0024
+        PredictorLocation: [7x1 double]
+           PredictorScale: [7x1 double]
+                    Alpha: [1000x1 double]
+         ActiveSetVectors: [1000x7 double]
+            PredictMethod: 'FIC'
+            ActiveSetSize: 1000
+                FitMethod: 'SR'
+          ActiveSetMethod: 'Random'
+        IsActiveSetVector: [1857x1 logical]
+            LogLikelihood: 8.1410e+03
+         ActiveSetHistory: [1x1 struct]
+           BCDInformation: []
+
+
+=============================================================RUL prediction model training has completed. ======================================================================
+The trained model is shown below:
+[?1l>Feature engineering script execution completed.
+(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ sh run.sh [5Pclear
+[H[2J[3J(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clearsh run.sh 
+The models directory is empty. Running MATLAB script...
+[?1h=
+                                                               < M A T L A B (R) >
+                                                     Copyright 1984-2023 The MathWorks, Inc.
+                                                    R2023b (23.2.0.2365128) 64-bit (glnxa64)
+                                                                 August 23, 2023
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[H[2J
+charge_columns = 
+
+  1x7 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_charge"    "Voltage_charge"
+
+  Column 7
+
+    "Charge_Time"
+
+
+discharge_columns = 
+
+  1x8 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+  Columns 7 through 8
+
+    "Discharge_time"    "Capacity"
+
+
+features = 
+
+  1x6 string array
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+
+split_num =
+
+        1857
+
+
+num_recs_test =
+
+      183865
+
+The input X battery discharging training data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  4.1915            -0.0049016               24.33             -0.0006              0    
+            24                  4.1907             -0.001478              24.326             -0.0006          4.206    
+            24                  3.9749               -2.0125              24.389             -1.9982          3.062    
+            24                  3.9517                -2.014              24.545             -1.9982           3.03    
+            24                  3.9344               -2.0111              24.731             -1.9982          3.011    
+            24                  3.9201                -2.013               24.91             -1.9982          2.991    
+            24                  3.9079               -2.0144              25.106             -1.9982          2.977    
+            24                   3.897               -2.0116              25.317             -1.9982          2.967    
+            24                  3.8875                -2.018              25.509             -1.9982          2.959    
+            24                   3.879               -2.0131              25.704             -1.9982          2.951    
+
+The Y target training data is as follows
+    Capacity
+    ________
+
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+
+The input Y target test battery discharge data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  3.5147             -2.0115                33.066             -1.9982          2.578    
+            24                  3.5127             -2.0118                33.121             -1.9982          2.576    
+            24                  3.5107              -2.013                33.164             -1.9982          2.574    
+            24                  3.5088             -2.0117                33.207             -1.9982          2.573    
+            24                  3.5067              -2.012                33.265             -1.9982           2.57    
+            24                  3.5047             -2.0114                33.305             -1.9982          2.569    
+            24                  3.5031             -2.0125                 33.36             -1.9982          2.567    
+            24                   3.501             -2.0154                33.403             -1.9982          2.565    
+            24                  3.4991             -2.0112                33.461             -1.9982          2.564    
+            24                  3.4975             -2.0134                33.503             -1.9982          2.561    
+
+The Y target test battery discharging data is as follows
+    Capacity
+    ________
+
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+     1.8246 
+
+============================================================== Now training RUL prediction model ==============================================================================
+  RegressionGP
+           PredictorNames: {1x7 cell}
+             ResponseName: 'Capacity'
+    CategoricalPredictors: []
+        ResponseTransform: 'none'
+          NumObservations: 1857
+           KernelFunction: 'ARDSquaredExponential'
+        KernelInformation: [1x1 struct]
+            BasisFunction: 'Constant'
+                     Beta: 2.3845
+                    Sigma: 0.0024
+        PredictorLocation: [7x1 double]
+           PredictorScale: [7x1 double]
+                    Alpha: [1000x1 double]
+         ActiveSetVectors: [1000x7 double]
+            PredictMethod: 'FIC'
+            ActiveSetSize: 1000
+                FitMethod: 'SR'
+          ActiveSetMethod: 'Random'
+        IsActiveSetVector: [1857x1 logical]
+            LogLikelihood: 8.1410e+03
+         ActiveSetHistory: [1x1 struct]
+           BCDInformation: []
+
+
+{Error using save
+Cannot create 'gpr_rul_model.mat' because '/matlab_code/models' does not exist.
+
+Error in train_gpr_rul_model (line 110)
+    save(model_path, 'rulModel');
+
+Error in run (line 99)
+evalin('caller', strcat(script, ';'));
+} 
+>> exit
+[?1l>Feature engineering script execution completed.
+(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ sh run.sh [5Pclear
+[H[2J[3J(base) ]0;yamukelani@dica10: ~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[01;32myamukelani@dica10[00m:[01;34m~/source_code/msc_research/rul_prediction/src/matlab_code/scripts[00m$ clearsh run.sh 
+The models directory is empty. Running MATLAB script...
+[?1h=
+                                                               < M A T L A B (R) >
+                                                     Copyright 1984-2023 The MathWorks, Inc.
+                                                    R2023b (23.2.0.2365128) 64-bit (glnxa64)
+                                                                 August 23, 2023
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[H[2J
+charge_columns = 
+
+  1x7 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_charge"    "Voltage_charge"
+
+  Column 7
+
+    "Charge_Time"
+
+
+discharge_columns = 
+
+  1x8 string array
+
+  Columns 1 through 6
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+  Columns 7 through 8
+
+    "Discharge_time"    "Capacity"
+
+
+features = 
+
+  1x6 string array
+
+    "Ambient_temperature"    "Voltage_measured"    "Current_measured"    "Temperature_meas..."    "Current_load"    "Voltage_load"
+
+
+split_num =
+
+        1857
+
+
+num_recs_test =
+
+      183865
+
+The input X battery discharging training data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  4.1915            -0.0049016               24.33             -0.0006              0    
+            24                  4.1907             -0.001478              24.326             -0.0006          4.206    
+            24                  3.9749               -2.0125              24.389             -1.9982          3.062    
+            24                  3.9517                -2.014              24.545             -1.9982           3.03    
+            24                  3.9344               -2.0111              24.731             -1.9982          3.011    
+            24                  3.9201                -2.013               24.91             -1.9982          2.991    
+            24                  3.9079               -2.0144              25.106             -1.9982          2.977    
+            24                   3.897               -2.0116              25.317             -1.9982          2.967    
+            24                  3.8875                -2.018              25.509             -1.9982          2.959    
+            24                   3.879               -2.0131              25.704             -1.9982          2.951    
+
+The Y target training data is as follows
+    Capacity
+    ________
+
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+     1.8565 
+
+The input Y target test battery discharge data is as follows
+    Ambient_temperature    Voltage_measured    Current_measured    Temperature_measured    Current_load    Voltage_load
+    ___________________    ________________    ________________    ____________________    ____________    ____________
+
+            24                  3.5147             -2.0115                33.066             -1.9982          2.578    
+            24                  3.5127             -2.0118                33.121             -1.9982          2.576    
+            24                  3.5107              -2.013                33.164             -1.9982          2.574    
+            24                  3.5088             -2.0117                33.207             -1.9982          2.573    
+            24                  3.5067              -2.012                33.265             -1.9982           2.57    
+            24                  3.5047             -2.0114                33.305             -1.9982          2.569    
+            24                  3.5031             -2.0125                 33.36             -1.9982          2.567    
+            24                   3.501             -2.015
