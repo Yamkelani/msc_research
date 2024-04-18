@@ -42,7 +42,7 @@ fprintf(logFile, logMessage);
 
 charge_columns = ["Ambient_temperature", "Voltage_measured", "Current_measured", "Temperature_measured", "Current_charge", "Voltage_charge", "Charge_Time"]
 discharge_columns = ["Ambient_temperature", "Voltage_measured", "Current_measured", "Temperature_measured", "Current_load", "Voltage_load", "Discharge_time","Capacity"]
-features = ["Ambient_temperature", "Voltage_measured", "Current_measured", "Temperature_measured", "Current_load", "Voltage_load"]
+features = ["Ambient_temperature", "Voltage_measured", "Current_measured", "Temperature_measured", "Current_load", "Voltage_load","Capacity"]
 
 
 bat_charge_seg = bat_charging_data(:,charge_columns);
