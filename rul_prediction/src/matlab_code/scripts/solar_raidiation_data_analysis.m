@@ -21,6 +21,7 @@ energy_const = solar_panel_yield * solar_panel_area * pr_losses
 
 energy_data_2021 = solar_rad_2021(:,[1,2]);
 energy_data_2022 = solar_rad_2022(:,[1,2]);
+
 %Calculate energy
 energy_data_2021.solar_energy = energy_data_2021.CS320_SlrW_Avg * energy_const;
 energy_data_2022.solar_energy = energy_data_2022.CS320_SlrW_Avg * energy_const;
