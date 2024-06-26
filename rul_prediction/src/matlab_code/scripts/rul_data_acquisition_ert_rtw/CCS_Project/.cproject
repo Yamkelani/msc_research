@@ -86,7 +86,7 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="MODEL=rul_data_acquisition">
 </listOptionValue>
-<listOptionValue builtIn="false" value="NUMST=1">
+<listOptionValue builtIn="false" value="NUMST=2">
 </listOptionValue>
 <listOptionValue builtIn="false" value="NCSTATES=0">
 </listOptionValue>
@@ -112,27 +112,27 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="CODERTARGET_XCP_MAX_CONTIGUOUS_SAMPLES=8">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_SIZE=32">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_SIZE=64">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_NUMBER=1">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_SIZE=56">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_NUMBER=1">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_NUMBER=2">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_SIZE=64">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_SIZE=32">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_NUMBER=1">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_NUMBER=2">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_TOTAL_SIZE=805">
+<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_TOTAL_SIZE=640">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_NUMBER=2">
+<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_NUMBER=3">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOL_BLOCKS_NUMBER=3">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOLS_NUMBER=1">
+<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOLS_NUMBER=2">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MIN_EVENT_NO_RESERVED_POOL=1">
+<listOptionValue builtIn="false" value="XCP_MIN_EVENT_NO_RESERVED_POOL=2">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MAX_CTO_SIZE=32">
 </listOptionValue>
@@ -164,7 +164,7 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="INTEGER_CODE=0">
 </listOptionValue>
-<listOptionValue builtIn="false" value="MT=0">
+<listOptionValue builtIn="false" value="MT=1">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_CUSTOM_PLATFORM">
 </listOptionValue>
@@ -316,7 +316,7 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="MODEL=rul_data_acquisition">
 </listOptionValue>
-<listOptionValue builtIn="false" value="NUMST=1">
+<listOptionValue builtIn="false" value="NUMST=2">
 </listOptionValue>
 <listOptionValue builtIn="false" value="NCSTATES=0">
 </listOptionValue>
@@ -342,27 +342,27 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="CODERTARGET_XCP_MAX_CONTIGUOUS_SAMPLES=8">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_SIZE=32">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_SIZE=64">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_NUMBER=1">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_SIZE=56">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_NUMBER=1">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_NUMBER=2">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_SIZE=64">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_SIZE=32">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_NUMBER=1">
+<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_NUMBER=2">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_TOTAL_SIZE=805">
+<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_TOTAL_SIZE=640">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_NUMBER=2">
+<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_NUMBER=3">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOL_BLOCKS_NUMBER=3">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOLS_NUMBER=1">
+<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOLS_NUMBER=2">
 </listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MIN_EVENT_NO_RESERVED_POOL=1">
+<listOptionValue builtIn="false" value="XCP_MIN_EVENT_NO_RESERVED_POOL=2">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_MAX_CTO_SIZE=32">
 </listOptionValue>
@@ -394,7 +394,7 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="INTEGER_CODE=0">
 </listOptionValue>
-<listOptionValue builtIn="false" value="MT=0">
+<listOptionValue builtIn="false" value="MT=1">
 </listOptionValue>
 <listOptionValue builtIn="false" value="XCP_CUSTOM_PLATFORM">
 </listOptionValue>
