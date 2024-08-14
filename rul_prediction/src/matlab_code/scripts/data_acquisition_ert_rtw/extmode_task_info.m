@@ -9,7 +9,7 @@ function [taskInfo, numtask, isDeploymentDiagram]=extmode_task_info()
             taskInfo(1).entryPoints = {};
             taskInfo(1).nonFcnCallPartitionName = 'D1';
 
-            taskInfo(2).samplePeriod = 0.5;
+            taskInfo(2).samplePeriod = 0.1;
             taskInfo(2).sampleOffset = 0.0;
 
                 taskInfo(2).taskPrio = 41;

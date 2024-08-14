@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'data_acquisition'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.38
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jun 26 14:33:54 2024
+ * C/C++ source code generated on : Wed Jul 31 13:35:47 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -20,13 +20,7 @@
 #ifndef RTW_HEADER_data_acquisition_private_h_
 #define RTW_HEADER_data_acquisition_private_h_
 #include "rtwtypes.h"
-#include "multiword_types.h"
 #include "data_acquisition_types.h"
-
-/* Private macros used by the generated code to access rtModel */
-#ifndef rtmSetTFinal
-#define rtmSetTFinal(rtm, val)         ((rtm)->Timing.tFinal = (val))
-#endif
 
 void InitAdc (void);
 void config_ADC_SOC0 (void);

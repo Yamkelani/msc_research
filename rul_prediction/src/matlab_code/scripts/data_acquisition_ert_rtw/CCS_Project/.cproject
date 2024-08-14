@@ -42,28 +42,6 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\rtw\c\ert">
 </listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\common">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\protocol\src">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\protocol\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\transport\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\transport\src">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\platform\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\platform\default">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\ext_mode\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\ext_mode\src">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\rtiostream\src">
-</listOptionValue>
 <listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\c2b\tic2000\src">
 </listOptionValue>
 <listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\c2b\tic2000\inc">
@@ -82,8 +60,6 @@
 </listOptionValue>
 </option>
 <option id="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.DEFINE.1045084510" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.DEFINE" valueType="definedSymbols">
-<listOptionValue builtIn="false" value="XCP_EXTMODE_SIMULATION_TIME_IN_TICKS">
-</listOptionValue>
 <listOptionValue builtIn="false" value="MODEL=data_acquisition">
 </listOptionValue>
 <listOptionValue builtIn="false" value="NUMST=2">
@@ -93,58 +69,6 @@
 <listOptionValue builtIn="false" value="HAVESTDIO">
 </listOptionValue>
 <listOptionValue builtIn="false" value="MODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_DAQ_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_CALIBRATION_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_TIMESTAMP_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_TIMESTAMP_BASED_ON_SIMULATION_TIME">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_SET_MTA_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXTMODE_XCP_TRIGGER_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_ADDRESS_GRANULARITY=XCP_ADDRESS_GRANULARITY_WORD">
-</listOptionValue>
-<listOptionValue builtIn="false" value="CODERTARGET_XCP_DAQ_PACKED_MODE">
-</listOptionValue>
-<listOptionValue builtIn="false" value="CODERTARGET_XCP_MAX_CONTIGUOUS_SAMPLES=8">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_SIZE=64">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_NUMBER=1">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_SIZE=56">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_NUMBER=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_SIZE=16">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_NUMBER=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_TOTAL_SIZE=448">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_NUMBER=3">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOL_BLOCKS_NUMBER=3">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOLS_NUMBER=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MIN_EVENT_NO_RESERVED_POOL=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MAX_CTO_SIZE=32">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MAX_DTO_SIZE=65532">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MAX_ODT_ENTRY_SIZE=255">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXTMODE_STATIC">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXTMODE_STATIC_SIZE=500">
-</listOptionValue>
-<listOptionValue builtIn="false" value="ON_TARGET_WAIT_FOR_START=0">
 </listOptionValue>
 <listOptionValue builtIn="false" value="CLASSIC_INTERFACE=0">
 </listOptionValue>
@@ -159,8 +83,6 @@
 <listOptionValue builtIn="false" value="MAT_FILE=0">
 </listOptionValue>
 <listOptionValue builtIn="false" value="MULTI_INSTANCE_CODE=0">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXT_MODE=1">
 </listOptionValue>
 <listOptionValue builtIn="false" value="INTEGER_CODE=0">
 </listOptionValue>
@@ -184,7 +106,7 @@
 </listOptionValue>
 </option>
 <option id="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.OTHER_FLAGS.1292182979" name="Other flags" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.OTHER_FLAGS" valueType="stringList">
-<listOptionValue builtIn="false" value=" --abi=coffabi -s -v28 -ml --abi=coffabi  --preproc_dependency=$(@:%.obj=%.dep) --preproc_with_compile  --large_memory_model -I$(F28_HEADERS)/include -I$(TI_INCLUDE) -v28 -ml -DF28027 -DBOOT_FROM_FLASH=1  --define=EXTMODE_DISABLEPRINTF ">
+<listOptionValue builtIn="false" value=" --abi=coffabi -s -v28 -ml --abi=coffabi  --preproc_dependency=$(@:%.obj=%.dep) --preproc_with_compile  --large_memory_model -I$(F28_HEADERS)/include -I$(TI_INCLUDE) -v28 -ml -DF28027 -DBOOT_FROM_FLASH=1">
 </listOptionValue>
 </option>
 </tool>
@@ -272,28 +194,6 @@
 </listOptionValue>
 <listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\rtw\c\ert">
 </listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\common">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\protocol\src">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\protocol\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\transport\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\transport\src">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\platform\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\server\platform\default">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\ext_mode\include">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\xcp\src\target\ext_mode\src">
-</listOptionValue>
-<listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\coder\rtiostream\src">
-</listOptionValue>
 <listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\c2b\tic2000\src">
 </listOptionValue>
 <listOptionValue builtIn="false" value="C:\Program Files\MATLAB\R2023b\toolbox\c2b\tic2000\inc">
@@ -312,8 +212,6 @@
 </listOptionValue>
 </option>
 <option id="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.DEFINE.1616953459" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.DEFINE" valueType="definedSymbols">
-<listOptionValue builtIn="false" value="XCP_EXTMODE_SIMULATION_TIME_IN_TICKS">
-</listOptionValue>
 <listOptionValue builtIn="false" value="MODEL=data_acquisition">
 </listOptionValue>
 <listOptionValue builtIn="false" value="NUMST=2">
@@ -323,58 +221,6 @@
 <listOptionValue builtIn="false" value="HAVESTDIO">
 </listOptionValue>
 <listOptionValue builtIn="false" value="MODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_DAQ_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_CALIBRATION_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_TIMESTAMP_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_TIMESTAMP_BASED_ON_SIMULATION_TIME">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_SET_MTA_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXTMODE_XCP_TRIGGER_SUPPORT">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_ADDRESS_GRANULARITY=XCP_ADDRESS_GRANULARITY_WORD">
-</listOptionValue>
-<listOptionValue builtIn="false" value="CODERTARGET_XCP_DAQ_PACKED_MODE">
-</listOptionValue>
-<listOptionValue builtIn="false" value="CODERTARGET_XCP_MAX_CONTIGUOUS_SAMPLES=8">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_SIZE=64">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_1_NUMBER=1">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_SIZE=56">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_2_NUMBER=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_SIZE=16">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_BLOCK_3_NUMBER=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_TOTAL_SIZE=448">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_RESERVED_POOLS_NUMBER=3">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOL_BLOCKS_NUMBER=3">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MEM_DAQ_RESERVED_POOLS_NUMBER=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MIN_EVENT_NO_RESERVED_POOL=2">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MAX_CTO_SIZE=32">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MAX_DTO_SIZE=65532">
-</listOptionValue>
-<listOptionValue builtIn="false" value="XCP_MAX_ODT_ENTRY_SIZE=255">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXTMODE_STATIC">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXTMODE_STATIC_SIZE=500">
-</listOptionValue>
-<listOptionValue builtIn="false" value="ON_TARGET_WAIT_FOR_START=0">
 </listOptionValue>
 <listOptionValue builtIn="false" value="CLASSIC_INTERFACE=0">
 </listOptionValue>
@@ -389,8 +235,6 @@
 <listOptionValue builtIn="false" value="MAT_FILE=0">
 </listOptionValue>
 <listOptionValue builtIn="false" value="MULTI_INSTANCE_CODE=0">
-</listOptionValue>
-<listOptionValue builtIn="false" value="EXT_MODE=1">
 </listOptionValue>
 <listOptionValue builtIn="false" value="INTEGER_CODE=0">
 </listOptionValue>
@@ -414,7 +258,7 @@
 </listOptionValue>
 </option>
 <option id="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.OTHER_FLAGS.1292182979" name="Other flags" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.4.compilerID.OTHER_FLAGS" valueType="stringList">
-<listOptionValue builtIn="false" value=" --abi=coffabi -s -v28 -ml --abi=coffabi  --preproc_dependency=$(@:%.obj=%.dep) --preproc_with_compile  --large_memory_model -I$(F28_HEADERS)/include -I$(TI_INCLUDE) -v28 -ml -DF28027 -DBOOT_FROM_FLASH=1  --define=EXTMODE_DISABLEPRINTF ">
+<listOptionValue builtIn="false" value=" --abi=coffabi -s -v28 -ml --abi=coffabi  --preproc_dependency=$(@:%.obj=%.dep) --preproc_with_compile  --large_memory_model -I$(F28_HEADERS)/include -I$(TI_INCLUDE) -v28 -ml -DF28027 -DBOOT_FROM_FLASH=1">
 </listOptionValue>
 </option>
 </tool>

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'data_acquisition'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.38
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jun 26 14:33:54 2024
+ * C/C++ source code generated on : Wed Jul 31 13:35:47 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -61,7 +61,7 @@ static void rate_monotonic_scheduler(void)
    * counter is reset when it reaches its limit (zero means run).
    */
   (data_acquisition_M->Timing.TaskCounters.TID[1])++;
-  if ((data_acquisition_M->Timing.TaskCounters.TID[1]) > 99) {/* Sample time: [0.5s, 0.0s] */
+  if ((data_acquisition_M->Timing.TaskCounters.TID[1]) > 19) {/* Sample time: [0.1s, 0.0s] */
     data_acquisition_M->Timing.TaskCounters.TID[1] = 0;
   }
 }
@@ -86,38 +86,15 @@ void data_acquisition_step0(void)      /* Sample time: [0.005s, 0.0s] */
     /*  External Reference Voltage : Allowable ranges of VREFHI(ADCINA0) = 3.3 and VREFLO(tied to ground) = 0  */
     data_acquisition_B.ADC1 = (AdcResult.ADCRESULT1);
   }
-
-  /* Update absolute time */
-  /* The "clockTick0" counts the number of times the code of this task has
-   * been executed. The absolute time is the multiplication of "clockTick0"
-   * and "Timing.stepSize0". Size of "clockTick0" ensures timer will not
-   * overflow during the application lifespan selected.
-   */
-  data_acquisition_M->Timing.taskTime0 =
-    ((time_T)(++data_acquisition_M->Timing.clockTick0)) *
-    data_acquisition_M->Timing.stepSize0;
 }
 
 /* Model step function for TID1 */
-void data_acquisition_step1(void)      /* Sample time: [0.5s, 0.0s] */
+void data_acquisition_step1(void)      /* Sample time: [0.1s, 0.0s] */
 {
   /* S-Function (c280xgpio_di): '<Root>/Digital Input' */
   {
     data_acquisition_B.DigitalInput = GpioDataRegs.GPADAT.bit.GPIO0;
   }
-
-  /* S-Function (c280xgpio_di): '<Root>/Digital Input1' */
-  {
-    data_acquisition_B.DigitalInput1 = GpioDataRegs.GPADAT.bit.GPIO1;
-  }
-
-  /* Update absolute time */
-  /* The "clockTick1" counts the number of times the code of this task has
-   * been executed. The resolution of this integer timer is 0.5, which is the step size
-   * of the task. Size of "clockTick1" ensures timer will not overflow during the
-   * application lifespan selected.
-   */
-  data_acquisition_M->Timing.clockTick1++;
 }
 
 /* Model initialize function */
@@ -128,28 +105,6 @@ void data_acquisition_initialize(void)
   /* initialize real-time model */
   (void) memset((void *)data_acquisition_M, 0,
                 sizeof(RT_MODEL_data_acquisition_T));
-  rtmSetTFinal(data_acquisition_M, -1);
-  data_acquisition_M->Timing.stepSize0 = 0.005;
-
-  /* External mode info */
-  data_acquisition_M->Sizes.checksums[0] = (3559795362U);
-  data_acquisition_M->Sizes.checksums[1] = (520469993U);
-  data_acquisition_M->Sizes.checksums[2] = (1382998499U);
-  data_acquisition_M->Sizes.checksums[3] = (4167525386U);
-
-  {
-    static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
-    static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[1];
-    data_acquisition_M->extModeInfo = (&rt_ExtModeInfo);
-    rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
-    systemRan[0] = &rtAlwaysEnabled;
-    rteiSetModelMappingInfoPtr(data_acquisition_M->extModeInfo,
-      &data_acquisition_M->SpecialInfo.mappingInfo);
-    rteiSetChecksumsPtr(data_acquisition_M->extModeInfo,
-                        data_acquisition_M->Sizes.checksums);
-    rteiSetTPtr(data_acquisition_M->extModeInfo, rtmGetTPtr(data_acquisition_M));
-  }
 
   /* block I/O */
   (void) memset(((void *) &data_acquisition_B), 0,
@@ -175,12 +130,6 @@ void data_acquisition_initialize(void)
   EALLOW;
   GpioCtrlRegs.GPAMUX1.all &= 0xFFFFFFFCU;
   GpioCtrlRegs.GPADIR.all &= 0xFFFFFFFEU;
-  EDIS;
-
-  /* Start for S-Function (c280xgpio_di): '<Root>/Digital Input1' */
-  EALLOW;
-  GpioCtrlRegs.GPAMUX1.all &= 0xFFFFFFF3U;
-  GpioCtrlRegs.GPADIR.all &= 0xFFFFFFFDU;
   EDIS;
 }
 

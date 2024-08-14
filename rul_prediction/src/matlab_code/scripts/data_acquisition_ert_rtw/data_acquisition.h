@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'data_acquisition'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.38
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jun 26 14:33:54 2024
+ * C/C++ source code generated on : Wed Jul 31 13:35:47 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -22,8 +22,6 @@
 #ifndef data_acquisition_COMMON_INCLUDES_
 #define data_acquisition_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#include "rtw_extmode.h"
-#include "sysran_types.h"
 #include "c2000BoardSupport.h"
 #include "F2802x_Device.h"
 #include "F2802x_Gpio.h"
@@ -32,17 +30,10 @@
 
 #include "data_acquisition_types.h"
 #include <string.h>
+#include <stddef.h>
 #include "MW_target_hardware_resources.h"
 
 /* Macros for accessing real-time model data structure */
-#ifndef rtmGetFinalTime
-#define rtmGetFinalTime(rtm)           ((rtm)->Timing.tFinal)
-#endif
-
-#ifndef rtmGetRTWExtModeInfo
-#define rtmGetRTWExtModeInfo(rtm)      ((rtm)->extModeInfo)
-#endif
-
 #ifndef rtmGetErrorStatus
 #define rtmGetErrorStatus(rtm)         ((rtm)->errorStatus)
 #endif
@@ -55,30 +46,6 @@
 #define rtmStepTask(rtm, idx)          ((rtm)->Timing.TaskCounters.TID[(idx)] == 0)
 #endif
 
-#ifndef rtmGetStopRequested
-#define rtmGetStopRequested(rtm)       ((rtm)->Timing.stopRequestedFlag)
-#endif
-
-#ifndef rtmSetStopRequested
-#define rtmSetStopRequested(rtm, val)  ((rtm)->Timing.stopRequestedFlag = (val))
-#endif
-
-#ifndef rtmGetStopRequestedPtr
-#define rtmGetStopRequestedPtr(rtm)    (&((rtm)->Timing.stopRequestedFlag))
-#endif
-
-#ifndef rtmGetT
-#define rtmGetT(rtm)                   ((rtm)->Timing.taskTime0)
-#endif
-
-#ifndef rtmGetTFinal
-#define rtmGetTFinal(rtm)              ((rtm)->Timing.tFinal)
-#endif
-
-#ifndef rtmGetTPtr
-#define rtmGetTPtr(rtm)                (&(rtm)->Timing.taskTime0)
-#endif
-
 #ifndef rtmTaskCounter
 #define rtmTaskCounter(rtm, idx)       ((rtm)->Timing.TaskCounters.TID[(idx)])
 #endif
@@ -86,34 +53,13 @@
 /* Block signals (default storage) */
 typedef struct {
   real32_T DigitalInput;               /* '<Root>/Digital Input' */
-  real32_T DigitalInput1;              /* '<Root>/Digital Input1' */
   uint16_T ADC;                        /* '<Root>/ADC' */
   uint16_T ADC1;                       /* '<Root>/ADC1' */
 } B_data_acquisition_T;
 
 /* Real-time Model Data Structure */
 struct tag_RTM_data_acquisition_T {
-  const char_T *errorStatus;
-  RTWExtModeInfo *extModeInfo;
-
-  /*
-   * Sizes:
-   * The following substructure contains sizes information
-   * for many of the model attributes such as inputs, outputs,
-   * dwork, sample times, etc.
-   */
-  struct {
-    uint32_T checksums[4];
-  } Sizes;
-
-  /*
-   * SpecialInfo:
-   * The following substructure contains special information
-   * related to other components that are dependent on RTW.
-   */
-  struct {
-    const void *mappingInfo;
-  } SpecialInfo;
+  const char_T * volatile errorStatus;
 
   /*
    * Timing:
@@ -121,16 +67,9 @@ struct tag_RTM_data_acquisition_T {
    * the timing information for the model.
    */
   struct {
-    time_T taskTime0;
-    uint32_T clockTick0;
-    time_T stepSize0;
-    uint32_T clockTick1;
     struct {
       uint16_T TID[2];
     } TaskCounters;
-
-    time_T tFinal;
-    boolean_T stopRequestedFlag;
   } Timing;
 };
 
@@ -150,6 +89,16 @@ extern void data_acquisition_terminate(void);
 extern RT_MODEL_data_acquisition_T *const data_acquisition_M;
 extern volatile boolean_T stopRequested;
 extern volatile boolean_T runModel;
+
+/*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<Root>/Constant' : Unused code path elimination
+ * Block '<Root>/Display' : Unused code path elimination
+ * Block '<Root>/Display1' : Unused code path elimination
+ * Block '<Root>/Display2' : Unused code path elimination
+ * Block '<Root>/Display3' : Unused code path elimination
+ */
 
 /*-
  * The generated code includes comments that allow you to trace directly
