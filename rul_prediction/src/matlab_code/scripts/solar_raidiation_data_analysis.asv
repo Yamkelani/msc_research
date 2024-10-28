@@ -30,7 +30,7 @@ solar_data_2022.month = month(solar_data_2022.Timestamp_UTC_0_, 'name')
 solar_data_2021.Date = datetime(solar_data_2021.Timestamp_UTC_0_)
 solar_data_2022.Date = datetime(solar_data_2022.Timestamp_UTC_0_)
 solar_data_2021.Date.Format = "default" 
-solar_data_2022.Date.Format = "default" 
+solar_data_2022.Date.Format = "dd" 
 solar_data_2021 = convertvars(solar_data_2021,["Date"],"categorical")
 group_data = groupsummary(solar_data_2021,'Date','mean','Solar_irradiation')
 disp("The calculated solar energy for the year 2021 is.")
