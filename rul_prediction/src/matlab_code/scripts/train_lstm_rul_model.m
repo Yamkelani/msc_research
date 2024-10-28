@@ -22,7 +22,7 @@ end
 currentTime = datestr(now, 'yyyy-mm-dd HH:MM:SS');
 
 % Write a log message to the file
-logMessage = sprintf('%s: Starting to run Feature engineering script.\n', currentTime);
+logMessage = sprintf('%s: Starting to run feature engineering script.\n', currentTime);
 fprintf(logFile, logMessage);
 
 % Perform your MATLAB computations here
