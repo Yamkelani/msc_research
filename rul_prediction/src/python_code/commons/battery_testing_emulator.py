@@ -122,13 +122,16 @@ class PVStorageEmulator:
                 record_key = 0
 
                 while output_status == 1:
+                    print(f"Entering record {record_key}")
                     record = {}
                     charge_record_key = test_cell+"char00"+str(record_key)
+                    print(f"With record key {charge_record_key}")
                     record['Time_stamp'] = datetime.datetime.now()
                     record['Cell_voltage'] = self.emulator.query("MEAS:VOLT?")
                     record['Cell_current'] = self.emulator.query("MEAS:CURR?")
                     record['Cell_charging_capacity'] = self.emulator.query("MEAS:CAP?")
                     record['Ambient_temperature'] = self.emulator.query("MEAS:TEMP?")
+                    print(record)
                     battery_charging_data[charge_record_key] = record
                     record_key += 1
                     output_status = int(self.emulator.query("OUTPUT?").strip("/n"))
@@ -194,13 +197,16 @@ class PVStorageEmulator:
                 record_key = 0
 
                 while output_status == 1:
+                    print(f"Entering record {record_key}")
                     record = {}
                     discharge_record_key = test_cell+"disc"+"00"+str(record_key)
+                    print(f"With record key {discharge_record_key}")
                     record['Time_stamp'] = datetime.datetime.now()
                     record['Cell_disc_voltage'] = self.emulator.query("MEAS:VOLT?")
                     record['Cell_disc_current'] = self.emulator.query("MEAS:CURR?")
                     record['Cell_disc_capacity'] = self.emulator.query("MEAS:CAP?")
                     record['Ambient_temperature'] = self.emulator.query("MEAS:TEMP?")
+                    print(record)
                     battery_discharging_data[discharge_record_key] = record
                     record_key += 1
                     output_status = int(self.emulator.query("OUTPUT?").strip("/n"))
