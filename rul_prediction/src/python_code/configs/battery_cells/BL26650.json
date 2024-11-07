@@ -1,0 +1,29 @@
+{
+"battery":{
+    "type": "Lithium ion",
+    "model": "BL26650",
+    "nominal_Capacity": "6800mAH",
+    "nominal_Voltage": 3.7
+},
+
+"test":{
+        "emulator":"USB0::0x2EC7::0x3622::803359022797450003::INSTR",
+        "output_path":"/datasets/battery_experiments_data/experiments_data/",
+        "Charge":{
+        "charge_voltage" : 4.2,
+        "charge_current": 3.4,
+        "stop_voltage": 4.3,
+        "stop_current": 0.1,
+        "stop_time": 1800,
+        "stop_capacity": 6.8
+        },
+        "Discharge":{
+            "discharge_voltage" : 2.8,
+            "discharge_current": 3.4,
+            "stop_voltage": 2.75,
+            "stop_current": 0.1,
+            "stop_time": 1800,
+            "stop_capacity": 6.8
+        }
+    }
+}
