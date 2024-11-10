@@ -1,3 +1,13 @@
+"""
+This code is for charging and discharging any battery cell using the Itech regenerative power supply.
+Remember to create a config file for the cell that you want to charge.
+Specify the charging and discharging parameters as shown in the cell datasheet.
+When running this code in the termina use the following command. Also make sure you are in th eright directory 
+, where this file is located.
+python .\test_battery_cell.py 001 ICR18650 
+"""
+
+
 import pyvisa as pvs
 import pandas as pd
 import logging
@@ -138,7 +148,7 @@ class PVStorageEmulator:
                     record_key += 1
                     output_status = int(self.emulator.query("OUTPUT?").strip("\n"))
 
-                with open(f"{charging_configs['charge_data_path']}/cell_{test_cell}_charging_data_{str(datetime.datetime.now().date()).replace(' ','_')}.json", "w") as outfile:
+                with open(f"{charging_configs['charge_data_path']}_charging_data_{str(datetime.datetime.now().date()).replace("-","_")}.json", "w") as outfile:
                     json.dump(battery_charging_data, outfile)
 
                 print("Checking if any errors were generated during system configuration")
@@ -213,7 +223,7 @@ class PVStorageEmulator:
                     record_key += 1
                     output_status = int(self.emulator.query("OUTP?").strip("\n"))
 
-            with open(f"{discharge_configs['discharge_data_path']}/cell_{test_cell}_dicharging_data_{str(datetime.datetime.now().date()).replace("-","_")}.json", "w") as outfile:
+            with open(f"{discharge_configs['discharge_data_path']}_dicharging_data_{str(datetime.datetime.now().date()).replace("-","_")}.json", "w") as outfile:
                     json.dump(battery_discharging_data, outfile)
 
 
@@ -230,9 +240,9 @@ class PVStorageEmulator:
             elif operation == battery_tests_ops[1]:
                 op = operation[:4].upper()
 
-            set_voltage = self.emulator.query(f"BATT:{op}:VOLT?")
-            set_current = self.emulator.query(f"BATT:{op}:CURR?")
-            set_time = self.emulator.query(f"BATT:{op}:TIME?")
+            # set_voltage = self.emulator.query(f"BATT:{op}:VOLT?")
+            # set_current = self.emulator.query(f"BATT:{op}:CURR?")
+            # set_time = self.emulator.query(f"BATT:{op}:TIME?")
 
         else:
             print(f"Invalid operation expection only these two operations {battery_tests_ops}")
@@ -244,17 +254,27 @@ class PVStorageEmulator:
 
 def main(**kwaargs):
 
-    cell_model = sys.argv[1]
+    test_num = str(sys.argv[1])
+    cell_model = str(sys.argv[2])
+
+    print(f"Running charge and discharge test {test_num} on cell {cell_model}.")
 
     #weather_data_paths = "C:/Users/yamzi/source_code/msc_research/rul_prediction/src/datasets/weather-2021.csv"
     base_path = "C:/Users/yamzi/source_code/msc_research/rul_prediction/src/python_code"
-    config_path = base_path+"/configs/battery_cells/"+ cell_model+".json"
+
     
+    config_path = base_path+"/configs/battery_cells/"+ cell_model+".json"
+    print("Config path:", config_path)
+    
+
     with open(config_path, 'r') as config_file:
         config = json.load(config_file)
 
-    battery_test_cell = config['battery']['model']
-    output_path = config['test']['output_path']
+    data_file_path = config['test']['output_path']+"test_"+test_num +"_cell_"+cell_model
+
+    print("The data files will be written to this path: ", data_file_path)
+
+    print("The test results data path is: ", data_file_path )
 
     solar_emulator = PVStorageEmulator(config['test']['emulator'])
 
@@ -262,29 +282,29 @@ def main(**kwaargs):
 
     discharging_configs = config['test']['Discharge']
 
-    print("==========================Starting Charging using the following Parameters============================")
-    print(charging_configs)
-    # #solar_emulator.get_device_status()
-    solar_emulator.battery_charger(
-                                   charge_data_path = base_path+output_path,
-                                   test_cell = cell_model,
-                                   charge_voltage = charging_configs['charge_voltage'],
-                                   charge_current = charging_configs['charge_current'],
-                                   stop_voltage = charging_configs['stop_voltage'],
-                                   stop_current = charging_configs['stop_current'],
-                                   stop_capacity = charging_configs['stop_capacity'],
-                                   stop_time = charging_configs['stop_time']
-                                   )
+    # print("==========================Starting Charging using the following Parameters============================")
+    # print(charging_configs)
+    # # #solar_emulator.get_device_status()
+    # solar_emulator.battery_charger(
+    #                                charge_data_path = data_file_path,
+    #                                test_cell = cell_model,
+    #                                charge_voltage = charging_configs['charge_voltage'],
+    #                                charge_current = charging_configs['charge_current'],
+    #                                stop_voltage = charging_configs['stop_voltage'],
+    #                                stop_current = charging_configs['stop_current'],
+    #                                stop_capacity = charging_configs['stop_capacity'],
+    #                                stop_time = charging_configs['stop_time']
+    #                                )
      
-    #wait for the charging process to finish
-    print("=================================================Charging is done ==========================================")
+    # #wait for the charging process to finish
+    # print("=================================================Charging is done ==========================================")
 
     print("==========================Now Discharging harging using the following Parameters============================")
     print(discharging_configs)
 
     solar_emulator.battery_discharge(
-                                   discharge_data_path = battery_test_path,
-                                   test_cell = battery_test_cell,
+                                   discharge_data_path = data_file_path,
+                                   test_cell = cell_model,
                                    discharge_voltage = discharging_configs['discharge_voltage'],
                                    discharge_current = discharging_configs['discharge_current'],
                                    stop_voltage = discharging_configs['stop_voltage'],
