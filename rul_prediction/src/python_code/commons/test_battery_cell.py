@@ -12,6 +12,7 @@ import pyvisa as pvs
 import pandas as pd
 import logging
 import datetime
+import time
 import json
 import sys
 
@@ -38,7 +39,11 @@ class PVStorageEmulator:
 
     def __init__(self, instrument_addr):
         resource_manager = pvs.ResourceManager()
-        self.emulator = resource_manager.open_resource(instrument_addr)  
+        self.emulator = resource_manager.open_resource(instrument_addr)
+        charge_columns = ['Battery_cell_model','Event','Cycle','Time_stamp','Measured_cell_voltage','Measured_cell_current','Measured_cell_capacity','Charging_voltage','Charging_current','Ambient_temperature',"Cell_temperature"]
+        discharge_columns = ['Battery_cell_model','Event','Cycle','Time_stamp','Measured_cell_voltage','Measured_cell_current','Measured_cell_capacity','Discharging_voltage','Discharging_current','Ambient_temperature',"Cell_temperature"]
+        self.charging_data = pd.DataFrame(columns = charge_columns) 
+        self.discharging_data = pd.DataFrame(columns = discharge_columns) 
 
     def get_device_status(self):
         print("The divice status is:", self.emulator.query("'*IDN?'"))
@@ -52,7 +57,7 @@ class PVStorageEmulator:
     def seasons_simulator(self,season):
         #Get season pv output
         #charge the battery cell
-        self.battery_charger()
+        self.battery_charge()
         #Wait for 720000 sec (2 hours)
         self.battery_discharge()
         #record voltage, current and temperature data
@@ -71,14 +76,20 @@ class PVStorageEmulator:
     def get_pv_current():
         pass
 
-    def battery_charger(self, **charging_configs):
+    def battery_charge(self, **charging_configs):
         try:
             test_cell = charging_configs['test_cell']
+            charging_file_path = f"{charging_configs['charge_data_path']}_charging_data_{str(datetime.datetime.now().date()).replace("-","_")}"
             #check if the emulator is on
             emulator_status = int(self.emulator.query("OUTP:STAT?").strip('/n'))
             print(f"The status of the emulator is {emulator_status}")
 
+            if emulator_status == 1:
+                self.emulator.write("OUTP 0")
+                emulator_status = int(self.emulator.query("OUTP:STAT?").strip('/n'))
             if emulator_status == 0:
+                if int(self.emulator.query("BATT?").strip('/n'))  == 1:
+                    self.emulator.write("BATT 0")
                 #Clear system errors.
                 print("Clearing errors")
                 self.emulator.write("SYST:CLE")
@@ -130,6 +141,8 @@ class PVStorageEmulator:
                 output_status = int(self.emulator.query("OUTPUT?").strip("\n"))
 
                 battery_charging_data = {} 
+
+                battery_charging_data['charging_parameters'] = charging_configs
                 record_key = 0
 
                 while output_status == 1:
@@ -138,37 +151,52 @@ class PVStorageEmulator:
                     charge_record_key = test_cell+"char00"+str(record_key)
                     print(f"Entering record: {record_key}")
                     print(f"With record key {charge_record_key}")
+                    record['Battery_cell_model'] = test_cell
+                    record['Event'] = 'Charging'
+                    record['Cycle'] = charging_configs['test_cycle']
                     record['Time_stamp'] = str(datetime.datetime.now())
-                    record['Cell_voltage'] = self.emulator.query("MEAS:VOLT?").strip("\n")
-                    record['Cell_current'] = self.emulator.query("MEAS:CURR?").strip("\n")
-                    record['Cell_charging_capacity'] = self.emulator.query("MEAS:CAP?").strip("\n")
-                    record['Ambient_temperature'] = self.emulator.query("MEAS:TEMP?").strip("\n")
+                    record['Measured_cell_voltage'] = self.emulator.query("MEAS:VOLT?").strip("\n")
+                    record['Measured_cell_current'] = self.emulator.query("MEAS:CURR?").strip("\n")
+                    record['Measured_cell_capacity'] = self.emulator.query("MEAS:CAP?").strip("\n")
+                    record['Charging_voltage'] = charging_configs['charge_voltage']
+                    record['Charging_current'] = charging_configs['charge_current']
+                    record['Ambient_temperature'] = None
+                    record['Cell_temperature'] = None
+                    data_record = pd.DataFrame([record])
                     print(record)
+                    self.log_measurements('charging', data_record )
                     battery_charging_data[charge_record_key] = record
                     record_key += 1
                     output_status = int(self.emulator.query("OUTPUT?").strip("\n"))
+                    time.sleep(0.005)
 
-                with open(f"{charging_configs['charge_data_path']}_charging_data_{str(datetime.datetime.now().date()).replace("-","_")}.json", "w") as outfile:
+                with open(charging_file_path+".json", "w") as outfile:
                     json.dump(battery_charging_data, outfile)
+
+                self.charging_data.to_csv(charging_file_path+".csv")
 
                 print("Checking if any errors were generated during system configuration")
                 print("ERROR", self.emulator.query("SYST:ERR?"))
 
         except Exception as e:
             print(f"Failed to set up the instrument for the charging process because of this error: {e}")
+            raise e
 
 
     def battery_discharge(self, **discharge_configs):
         try:
             #check if the emulator is on
             test_cell = discharge_configs['test_cell']
+            discharging_file_path = f"{discharge_configs['discharge_data_path']}_dicharging_data_{str(datetime.datetime.now().date()).replace("-","_")}"
             emulator_status = int(self.emulator.query("OUTP:STAT?").strip('/n'))
 
+            if emulator_status == 1:
+                self.emulator.write("OUTP 0")
             if emulator_status == 0:
-                #Set the device to act as a batetry charger and set the charging values.
-                #Check if the instrument is already on battery mode if so. 
                 if int(self.emulator.query("BATT?").strip('/n'))  == 1:
                     self.emulator.write("BATT 0")
+                #Set the device to act as a batetry charger and set the charging values.
+                #Check if the instrument is already on battery mode if so. 
                 
                 print("==========================Setting emulator to Battery mode=================")
                 self.emulator.write("BATT:MODE DISC")
@@ -207,45 +235,51 @@ class PVStorageEmulator:
 
                 battery_discharging_data = {} 
                 record_key = 0
+                battery_discharging_data['discharging_parameters'] = discharge_configs
+
 
                 while output_status == 1:
                     print(f"Entering record {record_key}")
                     record = {}
                     discharge_record_key = test_cell+"disc"+"00"+str(record_key)
                     print(f"With record key {discharge_record_key}")
+                    record['Battery_cell_model'] = test_cell
+                    record['Event'] = 'Charging'
+                    record['Cycle'] = discharge_configs['test_cycle']
                     record['Time_stamp'] = str(datetime.datetime.now())
-                    record['Cell_disc_voltage'] = self.emulator.query("MEAS:VOLT?").strip("\n")
-                    record['Cell_disc_current'] = self.emulator.query("MEAS:CURR?").strip("\n")
-                    record['Cell_disc_capacity'] = self.emulator.query("MEAS:CAP?").strip("\n")
-                    record['Ambient_temperature'] = self.emulator.query("MEAS:TEMP?").strip("\n")
+                    record['Measured_cell_voltage'] = self.emulator.query("MEAS:VOLT?").strip("\n")
+                    record['Measured_cell_current'] = self.emulator.query("MEAS:CURR?").strip("\n")
+                    record['Mesured_cell_capacity'] = self.emulator.query("MEAS:CAP?").strip("\n")
+                    record['Discharging_voltage'] = discharge_configs['discharge_voltage']
+                    record['Discharging_current'] = discharge_configs['discharge_current']
+                    record['Ambient_temperature'] = None
+                    record['Cell_temperature'] = None
+
+                    data_record = pd.DataFrame([record])
                     print(record)
                     battery_discharging_data[discharge_record_key] = record
+                    self.log_measurements('discharging', data_record )
                     record_key += 1
                     output_status = int(self.emulator.query("OUTP?").strip("\n"))
+                    time.sleep(0.005)
 
-            with open(f"{discharge_configs['discharge_data_path']}_dicharging_data_{str(datetime.datetime.now().date()).replace("-","_")}.json", "w") as outfile:
+            
+
+            with open(discharging_file_path+".json", "w") as outfile:
                     json.dump(battery_discharging_data, outfile)
+
+            self.discharging_data.to_csv(discharging_file_path+".csv")
 
 
         except Exception as e:
             print(f"Failed to set up the instrument for the discharging process because of this error: {e}")
+            raise e
 
-    def log_measurements(self, operation ):
-        battery_tests_ops = ("charging","discharging")
-        if operation in battery_tests_ops:
-            print(f"Currently running this process: {operation}")
-
-            if operation == battery_tests_ops[0]:
-                op = operation[:3].upper()
-            elif operation == battery_tests_ops[1]:
-                op = operation[:4].upper()
-
-            # set_voltage = self.emulator.query(f"BATT:{op}:VOLT?")
-            # set_current = self.emulator.query(f"BATT:{op}:CURR?")
-            # set_time = self.emulator.query(f"BATT:{op}:TIME?")
-
-        else:
-            print(f"Invalid operation expection only these two operations {battery_tests_ops}")
+    def log_measurements(self, operation, data ):
+        if operation == 'charging':
+            self.charging_data = pd.concat([self.charging_data, data])
+        elif operation == 'discharging':
+            self.discharging_data = pd.concat([self.discharging_data, data])
                         
             
 
@@ -285,7 +319,8 @@ def main(**kwaargs):
     # print("==========================Starting Charging using the following Parameters============================")
     # print(charging_configs)
     # # #solar_emulator.get_device_status()
-    # solar_emulator.battery_charger(
+    # solar_emulator.battery_charge(
+    #                                test_cycle = test_num,
     #                                charge_data_path = data_file_path,
     #                                test_cell = cell_model,
     #                                charge_voltage = charging_configs['charge_voltage'],
@@ -296,13 +331,14 @@ def main(**kwaargs):
     #                                stop_time = charging_configs['stop_time']
     #                                )
      
-    # #wait for the charging process to finish
-    # print("=================================================Charging is done ==========================================")
+    #wait for the charging process to finish
+    print("=================================================Charging is done ==========================================")
 
-    print("==========================Now Discharging harging using the following Parameters============================")
+    print("==========================Now Discharging using the following Parameters============================")
     print(discharging_configs)
 
     solar_emulator.battery_discharge(
+                                   test_cycle = test_num,
                                    discharge_data_path = data_file_path,
                                    test_cell = cell_model,
                                    discharge_voltage = discharging_configs['discharge_voltage'],
