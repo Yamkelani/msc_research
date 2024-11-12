@@ -1,0 +1,18 @@
+{
+    "weather_data":{
+    "Max_solar_irrad": 0.0,
+    "Average_monthly_solar_irrad":0.0,
+    "Min_solar_irrad":0.0,
+    "Daily_solar_irradiation":0.0,
+    "Daily_average_temperature": 0.0,
+    "Monthly_avg_temperature": 0.0,
+    "Max_temperature": 0.0
+    },
+    "Pv_output":{
+        "Max voltage:": 0.0,
+        "Average_voltage": 0.0,
+        "Max_power":0.0,
+        "Max_current":0.0
+    }
+
+}

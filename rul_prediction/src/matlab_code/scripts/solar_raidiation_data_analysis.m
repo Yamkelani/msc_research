@@ -5,6 +5,9 @@ solar_rad_path_22 = "weather_data_2022.csv";
 solar_rad_2021 = readtable(base_path+solar_rad_path_21);
 solar_rad_2022 = readtable(base_path+solar_rad_path_22);
 
+solar_rad_2021['Month'] = month()
+
+
 %Energy losses
 inverter_losses = 0.08;			
 temperature_losses = 0.08;			
