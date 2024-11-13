@@ -24,10 +24,11 @@ def aggregate_data(data, output_path, season):
     data['IrraSlope'] = 0
     data['TempSlope'] = 0
     data['Sec'] = 60
-    data = data[['Index','IrraSlope','TempSlope','Sec','Temp','Irra']]
+    data = data[['Index','IrraSlope','Irra','TempSlope','Temp','Sec']]
 
     print(f"Wtring data for the {season} season.")
-    data.to_csv(output_path+f"{season}_weather_data.csv", index=False)
+    data_path = output_path+f"{season}_weather_data.csv"
+    data.to_csv(data_path, index=False)
     print(len(data))
     print(data[:5])
 

@@ -1,10 +1,10 @@
 {
 "battery":{
     "Manufacturer": "Samsung",
-    "type": "Lithium ion",
-    "model": "ICR18650",
-    "nominal_Capacity": "2600mAH",
-    "nominal_Voltage": 3.7
+    "Type": "Lithium ion",
+    "Model": "ICR18650",
+    "Nominal_Capacity": "2600mAH",
+    "Nominal_Voltage": 3.7
 },
 
 "test":{
@@ -15,14 +15,14 @@
         "charge_current": 2.5,
         "stop_voltage": 4.4,
         "stop_current": 0.02,
-        "stop_time": 300,
+        "stop_time": 9000,
         "stop_capacity": 2.6
         },
         "Discharge":{
             "discharge_voltage" : 2.8,
             "discharge_current": 2.0,
             "stop_voltage": 2.75,
-            "stop_current": 0.1,
+            "stop_current": 0.02,
             "stop_time": 9000,
             "stop_capacity": 2.6
         }

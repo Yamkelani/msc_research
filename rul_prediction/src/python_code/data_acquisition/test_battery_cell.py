@@ -4,7 +4,8 @@ Remember to create a config file for the cell that you want to charge.
 Specify the charging and discharging parameters as shown in the cell datasheet.
 When running this code in the termina use the following command. Also make sure you are in th eright directory 
 , where this file is located.
-python .\test_battery_cell.py 001 ICR18650 
+python .\test_battery_cell.py 001 ICR18650
+python .\test_battery_cell.py 001 IFR32700 
 """
 
 
@@ -40,8 +41,8 @@ class PVStorageEmulator:
     def __init__(self, instrument_addr):
         resource_manager = pvs.ResourceManager()
         self.emulator = resource_manager.open_resource(instrument_addr)
-        charge_columns = ['Battery_cell_model','Event','Cycle','Time_stamp','Measured_cell_voltage','Measured_cell_current','Measured_cell_capacity','Charging_voltage','Charging_current','Ambient_temperature',"Cell_temperature"]
-        discharge_columns = ['Battery_cell_model','Event','Cycle','Time_stamp','Measured_cell_voltage','Measured_cell_current','Measured_cell_capacity','Discharging_voltage','Discharging_current','Ambient_temperature',"Cell_temperature"]
+        charge_columns = ['Battery_cell_model','Test_cell_number','Operation','Cycle','Time_stamp','Measured_cell_voltage','Measured_cell_current','Measured_cell_capacity','Charging_voltage','Charging_current','Ambient_temperature',"Cell_temperature"]
+        discharge_columns = ['Battery_cell_model','Test_cell_number','Operation','Cycle','Time_stamp','Measured_cell_voltage','Measured_cell_current','Measured_cell_capacity','Discharging_voltage','Discharging_current','Ambient_temperature',"Cell_temperature"]
         self.charging_data = pd.DataFrame(columns = charge_columns) 
         self.discharging_data = pd.DataFrame(columns = discharge_columns) 
 
@@ -152,8 +153,9 @@ class PVStorageEmulator:
                     print(f"Entering record: {record_key}")
                     print(f"With record key {charge_record_key}")
                     record['Battery_cell_model'] = test_cell
-                    record['Event'] = 'Charging'
+                    record['Operation'] = 'Charging'
                     record['Cycle'] = charging_configs['test_cycle']
+                    record['Test_cell_number'] = charging_configs['cell_num']
                     record['Time_stamp'] = str(datetime.datetime.now())
                     record['Measured_cell_voltage'] = self.emulator.query("MEAS:VOLT?").strip("\n")
                     record['Measured_cell_current'] = self.emulator.query("MEAS:CURR?").strip("\n")
@@ -168,7 +170,7 @@ class PVStorageEmulator:
                     battery_charging_data[charge_record_key] = record
                     record_key += 1
                     output_status = int(self.emulator.query("OUTPUT?").strip("\n"))
-                    time.sleep(0.005)
+                    time.sleep(5)
 
                 with open(charging_file_path+".json", "w") as outfile:
                     json.dump(battery_charging_data, outfile)
@@ -244,12 +246,13 @@ class PVStorageEmulator:
                     discharge_record_key = test_cell+"disc"+"00"+str(record_key)
                     print(f"With record key {discharge_record_key}")
                     record['Battery_cell_model'] = test_cell
-                    record['Event'] = 'Charging'
+                    record['Operation'] = 'Discharging'
                     record['Cycle'] = discharge_configs['test_cycle']
+                    record['Test_cell_number'] = discharge_configs['cell_num']
                     record['Time_stamp'] = str(datetime.datetime.now())
                     record['Measured_cell_voltage'] = self.emulator.query("MEAS:VOLT?").strip("\n")
                     record['Measured_cell_current'] = self.emulator.query("MEAS:CURR?").strip("\n")
-                    record['Mesured_cell_capacity'] = self.emulator.query("MEAS:CAP?").strip("\n")
+                    record['Measured_cell_capacity'] = self.emulator.query("MEAS:CAP?").strip("\n")
                     record['Discharging_voltage'] = discharge_configs['discharge_voltage']
                     record['Discharging_current'] = discharge_configs['discharge_current']
                     record['Ambient_temperature'] = None
@@ -261,7 +264,7 @@ class PVStorageEmulator:
                     self.log_measurements('discharging', data_record )
                     record_key += 1
                     output_status = int(self.emulator.query("OUTP?").strip("\n"))
-                    time.sleep(0.005)
+                    time.sleep(5)
 
             
 
@@ -290,6 +293,7 @@ def main(**kwaargs):
 
     test_num = str(sys.argv[1])
     cell_model = str(sys.argv[2])
+    test_cell_number = int(sys.argv[3])
 
     print(f"Running charge and discharge test {test_num} on cell {cell_model}.")
 
@@ -304,7 +308,7 @@ def main(**kwaargs):
     with open(config_path, 'r') as config_file:
         config = json.load(config_file)
 
-    data_file_path = config['test']['output_path']+"test_"+test_num +"_cell_"+cell_model
+    data_file_path = config['test']['output_path']+"test_"+test_num +"_cell_"+str(test_cell_number)+"_model_"+cell_model
 
     print("The data files will be written to this path: ", data_file_path)
 
@@ -316,29 +320,16 @@ def main(**kwaargs):
 
     discharging_configs = config['test']['Discharge']
 
-    # print("==========================Starting Charging using the following Parameters============================")
-    # print(charging_configs)
-    # # #solar_emulator.get_device_status()
-    # solar_emulator.battery_charge(
-    #                                test_cycle = test_num,
-    #                                charge_data_path = data_file_path,
-    #                                test_cell = cell_model,
-    #                                charge_voltage = charging_configs['charge_voltage'],
-    #                                charge_current = charging_configs['charge_current'],
-    #                                stop_voltage = charging_configs['stop_voltage'],
-    #                                stop_current = charging_configs['stop_current'],
-    #                                stop_capacity = charging_configs['stop_capacity'],
-    #                                stop_time = charging_configs['stop_time']
-    #                                )
      
     #wait for the charging process to finish
-    print("=================================================Charging is done ==========================================")
+   
 
-    print("==========================Now Discharging using the following Parameters============================")
+    print("==========================Starting Discharging using the following Parameters============================")
     print(discharging_configs)
 
     solar_emulator.battery_discharge(
                                    test_cycle = test_num,
+                                   cell_num = test_cell_number,
                                    discharge_data_path = data_file_path,
                                    test_cell = cell_model,
                                    discharge_voltage = discharging_configs['discharge_voltage'],
@@ -348,6 +339,27 @@ def main(**kwaargs):
                                    stop_capacity = discharging_configs['stop_capacity'],
                                    stop_time = discharging_configs['stop_time']
     )
+
+    time.sleep(300)
+
+    # print("=================================================Disharging is done ==========================================")
+    # print("==========================Starting Charging using the following Parameters============================")
+    # print(charging_configs)
+    # # #solar_emulator.get_device_status()
+    # solar_emulator.battery_charge(
+    #                                test_cycle = test_num,
+    #                                cell_num = test_cell_number,
+    #                                charge_data_path = data_file_path,
+    #                                test_cell = cell_model,
+    #                                charge_voltage = charging_configs['charge_voltage'],
+    #                                charge_current = charging_configs['charge_current'],
+    #                                stop_voltage = charging_configs['stop_voltage'],
+    #                                stop_current = charging_configs['stop_current'],
+    #                                stop_capacity = charging_configs['stop_capacity'],
+    #                                stop_time = charging_configs['stop_time']
+    #                                )
+    
+    # print("=================================================Charging is done ==========================================")
 
 
 if __name__ == "__main__":
