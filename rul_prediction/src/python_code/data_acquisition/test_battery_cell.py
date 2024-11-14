@@ -320,7 +320,24 @@ def main(**kwaargs):
 
     discharging_configs = config['test']['Discharge']
 
-     
+    print("==========================Starting Charging using the following Parameters============================")
+    print(charging_configs)
+    # #solar_emulator.get_device_status()
+    solar_emulator.battery_charge(
+                                   test_cycle = test_num,
+                                   cell_num = test_cell_number,
+                                   charge_data_path = data_file_path,
+                                   test_cell = cell_model,
+                                   charge_voltage = charging_configs['charge_voltage'],
+                                   charge_current = charging_configs['charge_current'],
+                                   stop_voltage = charging_configs['stop_voltage'],
+                                   stop_current = charging_configs['stop_current'],
+                                   stop_capacity = charging_configs['stop_capacity'],
+                                   stop_time = charging_configs['stop_time']
+                                   )
+    
+    print("=================================================Charging is done ==========================================")
+
     #wait for the charging process to finish
    
 
@@ -340,27 +357,10 @@ def main(**kwaargs):
                                    stop_time = discharging_configs['stop_time']
     )
 
-    time.sleep(300)
+    # time.sleep(300)
 
     # print("=================================================Disharging is done ==========================================")
-    # print("==========================Starting Charging using the following Parameters============================")
-    # print(charging_configs)
-    # # #solar_emulator.get_device_status()
-    # solar_emulator.battery_charge(
-    #                                test_cycle = test_num,
-    #                                cell_num = test_cell_number,
-    #                                charge_data_path = data_file_path,
-    #                                test_cell = cell_model,
-    #                                charge_voltage = charging_configs['charge_voltage'],
-    #                                charge_current = charging_configs['charge_current'],
-    #                                stop_voltage = charging_configs['stop_voltage'],
-    #                                stop_current = charging_configs['stop_current'],
-    #                                stop_capacity = charging_configs['stop_capacity'],
-    #                                stop_time = charging_configs['stop_time']
-    #                                )
     
-    # print("=================================================Charging is done ==========================================")
-
 
 if __name__ == "__main__":
     main()

@@ -1,28 +1,19 @@
 version: latest
 services:
-  telegraf:
-    image: telegraf
-    container_name: battery_health_indicators_telegraf
-    restart: always
-    volumes:
-        - ./telegraf.conf:/etc/telegraf/telegraf.conf.ro
-    depends_on:
-        - influxdb
-    links:
-        - influxdb
-    ports: 
-        - '8125:8125'
-  
   influxdb:
-    image: influxdb:latest
-    container_name: influxdb
+    build: influxdb:latest
     restart: always
-    environment:
-        - INFLUXDB_DB=battery_insights_db
-        - INFLUXDB_ADMIN_USER=446673
-        - INFLUX_ADMIN_PASSWORD=Y@mu012790$$
+    env_file: msc_config.env
     ports: 
         - '8086:8086'
     volumes:
         - influxdb_data:/var/lib/influxdb
+  
+  grafana:
+    build: grafana:latest
+    env_file: msc_config.env
+    ports: 
+        - 3000:3000
+    volumes: 
+        - grafana_data:/var/lib/grafana
 
