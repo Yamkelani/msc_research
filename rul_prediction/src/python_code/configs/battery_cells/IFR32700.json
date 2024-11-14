@@ -1,29 +1,30 @@
 {
     "Battery":{
+        "Manufacturer": "Uniross Batteries",
         "Type": "Lithium ion",
-        "Model": "BL26650",
-        "Nominal Capacity": "6800mAH",
-        "Nominal Voltage": 3.7
+        "Model": "IFR32700",
+        "Nominal Capacity": "6000mAH",
+        "Nominal Voltage": 3.2
     },
     
     "test":{
-            "emulator":"USB0::0x2EC7::0x3622::803359022797450003::INSTR",
-            "output_path":"/datasets/battery_experiments_data/experiments_data/",
+            "emulator":"USB0::0x2EC7::0x3622::803359022767110013::INSTR",
+            "output_path":"C:/Users/yamzi/source_code/msc_research/rul_prediction/src/datasets/battery_experiments_data/experiments_data/",
             "Charge":{
-            "charge_voltage" : 4.2,
-            "charge_current": 3.4,
-            "stop_voltage": 4.3,
-            "stop_current": 0.1,
-            "stop_time": 1800,
-            "stop_capacity": 6.8
+            "charge_voltage" : 3.6,
+            "charge_current": 3.0,
+            "stop_voltage": 3.65,
+            "stop_current": 0.125,
+            "stop_time": 9000,
+            "stop_capacity": 6.0
             },
             "Discharge":{
-                "discharge_voltage" : 2.8,
-                "discharge_current": 3.4,
-                "stop_voltage": 2.75,
-                "stop_current": 0.1,
-                "stop_time": 1800,
-                "stop_capacity": 6.8
+                "discharge_voltage" : 2.2,
+                "discharge_current": 3.0,
+                "stop_voltage": 2.0,
+                "stop_current": 0.125,
+                "stop_time": 9000,
+                "stop_capacity": 6.0
             }
         }
     }
