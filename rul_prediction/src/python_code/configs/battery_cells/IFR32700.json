@@ -12,7 +12,7 @@
             "output_path":"C:/Users/yamzi/source_code/msc_research/rul_prediction/src/datasets/battery_experiments_data/experiments_data/",
             "Charge":{
             "charge_voltage" : 3.6,
-            "charge_current": 3.0,
+            "charge_current": 3.75,
             "stop_voltage": 3.65,
             "stop_current": 0.125,
             "stop_time": 9000,

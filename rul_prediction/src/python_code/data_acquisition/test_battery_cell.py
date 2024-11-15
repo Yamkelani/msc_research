@@ -45,6 +45,7 @@ class PVStorageEmulator:
         discharge_columns = ['Battery_cell_model','Test_cell_number','Operation','Cycle','Time_stamp','Measured_cell_voltage','Measured_cell_current','Measured_cell_capacity','Discharging_voltage','Discharging_current','Ambient_temperature',"Cell_temperature"]
         self.charging_data = pd.DataFrame(columns = charge_columns) 
         self.discharging_data = pd.DataFrame(columns = discharge_columns) 
+        self.seasons = ['summer','autum','winter','spring']
 
     def get_device_status(self):
         print("The divice status is:", self.emulator.query("'*IDN?'"))
@@ -55,7 +56,7 @@ class PVStorageEmulator:
             datasets.append(pd.read_csv(path,header=0))
         return datasets
 
-    def seasons_simulator(self,season):
+    def seasons_simulator(self):
         #Get season pv output
         #charge the battery cell
         self.battery_charge()
@@ -203,25 +204,25 @@ class PVStorageEmulator:
                 print("==========================Setting emulator to Battery mode=================")
                 self.emulator.write("BATT:MODE DISC")
 
-                print(f"==========================Setting battery charging voltage to {discharge_configs["discharge_voltage"]} =================")
+                print(f"==========================Setting battery discharging voltage to {discharge_configs["discharge_voltage"]} =================")
                 self.emulator.write(f"BATT:DISC:VOLT {discharge_configs['discharge_voltage']}")
 
-                print(f"==========================Setting battery charging current to {discharge_configs["discharge_current"]} =================")
+                print(f"==========================Setting battery discharging current to {discharge_configs["discharge_current"]} =================")
                 self.emulator.write(f"BATT:DISC:CURR {discharge_configs['discharge_current']}")
 
-                print(f"==========================Setting battery cut off voltage to {discharge_configs["stop_voltage"]} =================")
+                print(f"==========================Setting battery discharge cut off voltage to {discharge_configs["stop_voltage"]} =================")
                 self.emulator.write(f"BATT:STOP:VOLT {discharge_configs['stop_voltage']}")
 
-                print(f"==========================Setting battery cut off current to {discharge_configs["stop_current"]} =================")
+                print(f"==========================Setting battery discharge cut off current to {discharge_configs["stop_current"]} =================")
                 self.emulator.write(f"BATT:STOP:CURR {discharge_configs['stop_current']}")
 
-                print(f"==========================Setting battery cut off capacity to {discharge_configs["stop_capacity"]} =================")
+                print(f"==========================Setting battery discharge cut off capacity to {discharge_configs["stop_capacity"]} =================")
                 self.emulator.write(f"BATT:STOP:CAP {discharge_configs['stop_capacity']}")
                 
-                print(f"==========================Setting battery cut off time {discharge_configs["stop_time"]} =================")
+                print(f"==========================Setting battery discharge cut off time {discharge_configs["stop_time"]} =================")
                 self.emulator.write(f"BATT:STOP:TIME {discharge_configs['stop_time']}")
 
-                print(f"==========================Now turning the Battery charge and output on emulator on to begin discharge process =================")
+                print(f"==========================Now turning the Battery process and output on emulator on to begin discharge process =================")
                 self.emulator.write("BATT 1")
                 self.emulator.write("OUTPUT 1")
 
@@ -294,6 +295,7 @@ def main(**kwaargs):
     test_num = str(sys.argv[1])
     cell_model = str(sys.argv[2])
     test_cell_number = int(sys.argv[3])
+    season = str(sys.argv[4])
 
     print(f"Running charge and discharge test {test_num} on cell {cell_model}.")
 
@@ -302,17 +304,15 @@ def main(**kwaargs):
 
     
     config_path = base_path+"/configs/battery_cells/"+ cell_model+".json"
-    print("Config path:", config_path)
     
-
     with open(config_path, 'r') as config_file:
         config = json.load(config_file)
 
-    data_file_path = config['test']['output_path']+"test_"+test_num +"_cell_"+str(test_cell_number)+"_model_"+cell_model
+    data_file_path = config['test']['output_path']+"test_"+season+"_"+test_num +"_cell_"+str(test_cell_number)+"_model_"+cell_model
 
     print("The data files will be written to this path: ", data_file_path)
 
-    print("The test results data path is: ", data_file_path )
+    print("The battery data path is: ", data_file_path )
 
     solar_emulator = PVStorageEmulator(config['test']['emulator'])
 
@@ -322,7 +322,7 @@ def main(**kwaargs):
 
     print("==========================Starting Charging using the following Parameters============================")
     print(charging_configs)
-    # #solar_emulator.get_device_status()
+    
     solar_emulator.battery_charge(
                                    test_cycle = test_num,
                                    cell_num = test_cell_number,
@@ -357,9 +357,9 @@ def main(**kwaargs):
                                    stop_time = discharging_configs['stop_time']
     )
 
-    # time.sleep(300)
+    time.sleep(300)
 
-    # print("=================================================Disharging is done ==========================================")
+    print("=================================================Disharging is done ==========================================")
     
 
 if __name__ == "__main__":
