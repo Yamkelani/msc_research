@@ -12,18 +12,18 @@
             "output_path":"C:/Users/yamzi/source_code/msc_research/rul_prediction/src/datasets/battery_experiments_data/experiments_data/",
             "Charge":{
             "charge_voltage" : 3.6,
-            "charge_current": 3.75,
+            "charge_current": 1.9,
             "stop_voltage": 3.65,
             "stop_current": 0.125,
-            "stop_time": 9000,
+            "stop_time": 14400,
             "stop_capacity": 6.0
             },
             "Discharge":{
                 "discharge_voltage" : 2.2,
-                "discharge_current": 3.0,
+                "discharge_current": 4.0,
                 "stop_voltage": 2.0,
                 "stop_current": 0.125,
-                "stop_time": 9000,
+                "stop_time": 9600,
                 "stop_capacity": 6.0
             }
         }

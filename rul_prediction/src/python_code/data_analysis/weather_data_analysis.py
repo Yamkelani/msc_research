@@ -50,21 +50,25 @@ def main():
     weather_data['Month'] = weather_data['Timestamp (UTC+0)'].dt.month
     weather_data['Date'] = weather_data['Timestamp (UTC+0)'].dt.date
     weather_data['Month'] = weather_data['Month'].apply(lambda x : CALENDAR[x])
-    weather_data = weather_data.rename(columns={"Temperature": "Temp", "Solar_irradiation": "Irra"})
+    weather_data = weather_data.rename(columns={"Temperature": "Temp", "Solar_irradiation": "Irra","Timestamp (UTC+0)":"Timestamp_UTC"})
 
 
 
     summer = weather_data[(weather_data['Month'] == 'January') | (weather_data['Month'] == 'February') | (weather_data['Month'] == 'December')]
-    aggregate_data(summer, output_path, "summer")
+    summer.to_csv(output_path+"summer_weather_data.csv")
+    # aggregate_data(summer, output_path, "summer")
     
     winter = weather_data[(weather_data['Month'] == 'June') | (weather_data['Month'] == 'July') | (weather_data['Month'] == 'August')]
-    aggregate_data(winter, output_path, "winter")
+    # aggregate_data(winter, output_path, "winter")
+    winter.to_csv(output_path+"winter_weather_data.csv")
     
     autum  = weather_data[(weather_data['Month'] == 'March') | (weather_data['Month'] == 'April') | (weather_data['Month'] == 'May')]
-    aggregate_data(autum, output_path, "autum")
+    # aggregate_data(autum, output_path, "autum")
+    autum.to_csv(output_path+"autum_weather_data.csv")
 
     spring = weather_data[(weather_data['Month'] == 'September') | (weather_data['Month'] == 'October') | (weather_data['Month'] == 'November')]
-    aggregate_data(spring,output_path, "spring")
+    # aggregate_data(spring,output_path, "spring")
+    spring.to_csv(output_path+"spring_weather_data.csv")
 
 if __name__ == "__main__":
     main()
