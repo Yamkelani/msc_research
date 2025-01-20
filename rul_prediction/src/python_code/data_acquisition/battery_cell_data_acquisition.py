@@ -11,6 +11,7 @@ python .\test_battery_cell.py 001 IFR32700
 
 import pyvisa as pvs
 import pandas as pd
+# import pywhatkit as wkit
 import logging
 import datetime
 import time
@@ -44,38 +45,15 @@ class PVStorageEmulator:
         self.discharging_data = pd.DataFrame(columns = discharge_columns) 
         self.seasons = ["summer','autum','winter','spring"]
 
-    def get_device_status(self):
-        print("The divice status is:", self.emulator.query("'*IDN?'"))
-
-    def ingest_irrad_data(paths):
-        datasets = []
-        for path in paths:
-            datasets.append(pd.read_csv(path,header=0))
-        return datasets
-
-    def seasons_simulator(self):
-        #Get season pv output
-        #charge the battery cell
-        self.battery_charge()
-        #Wait for 720000 sec (2 hours)
-        self.battery_discharge()
-        #record voltage, current and temperature data
-
-
-    def pv_simulator(emulator):
-        #irrad_data = ingest_irrad_data()
-        emulator.write("SOUR:MOD Solar")
-
-    def get_pv_power():
-        pass
-
-    def get_pv_voltage():
-        pass
-
-    def get_pv_current():
-        pass
 
     def battery_charge(self, **charging_configs):
+        """
+        Description: This function is responsible for the battery cell charging and logging the battery charging data process.
+        Parameters: charging_configs
+                        type:dict
+                        description: contains all the parameters required for battery cell charging process. 
+        returns: 
+        """
         try:
             test_cell = charging_configs["test_cell"]
             charging_file_path = f'{charging_configs["charge_data_path"]}_charging_data_{str(datetime.datetime.now().date()).replace("-","_")}'
@@ -184,6 +162,14 @@ class PVStorageEmulator:
 
 
     def battery_discharge(self, **discharge_configs):
+
+        """
+        Description: This function is responsible for the battery cell discharging and logging the battery discharging data process.
+        Parameters: discharge_configs
+                        type:dict
+                        description: contains all the parameters required for battery discharge process. 
+        returns: 
+        """
         try:
             #check if the emulator is on
             test_cell = discharge_configs["test_cell"]
@@ -280,11 +266,6 @@ class PVStorageEmulator:
         elif operation == 'discharging':
             self.discharging_data = pd.concat([self.discharging_data, data])
                         
-            
-
-    def generate_pv_output():
-        pass
-
 def main(**kwaargs):
 
     test_num = str(sys.argv[1])
@@ -294,7 +275,6 @@ def main(**kwaargs):
 
     print(f'Running charge and discharge test {test_num} on cell {cell_model}.')
 
-    #weather_data_paths = "C:/Users/yamzi/source_code/msc_research/rul_prediction/src/datasets/weather-2021.csv"
     base_path = "C:/Users/yamzi/source_code/msc_research/rul_prediction/src/python_code"
 
     
@@ -315,52 +295,65 @@ def main(**kwaargs):
 
     discharging_configs = config["test"]["Discharge"]
 
-    # print("==========================Starting Charging using the following Parameters============================")
-    # print(charging_configs)
-    # logger.info(f'==========================Starting Test {test_num} battery cell model {cell_model} charging using the following parameters at time: {str(datetime.datetime.now())}============================')
-    # logger.info(charging_configs)
-    
-    # solar_emulator.battery_charge(
-    #                                test_cycle = test_num,
-    #                                cell_num = test_cell_number,
-    #                                charge_data_path = data_file_path,
-    #                                test_cell = cell_model,
-    #                                charge_voltage = charging_configs["charge_voltage"],
-    #                                charge_current = charging_configs["charge_current"],
-    #                                stop_voltage = charging_configs["stop_voltage"],
-    #                                stop_current = charging_configs["stop_current"],
-    #                                stop_capacity = charging_configs["stop_capacity"],
-    #                                stop_time = charging_configs["stop_time"]
-    #                                )
-    
-    # print("=================================================Charging is done ==========================================")
-    # logger.info(f'==========================Charging process ended at {str(datetime.datetime.now())}============================')  
+    test_charge = config["test"]["charge"]
+    test_discharge = config["test"]["discharge"]
 
-    #wait for the charging process to finish
-   
+    cycles = 11
 
-    print("==========================Starting Discharging using the following Parameters============================")
-    print(discharging_configs)
-    logger.info(f'==========================Starting Test {test_num} , for battery cell model {cell_model} discharging using the following parameters at time: {str(datetime.datetime.now())}============================')
-    logger.info(discharging_configs)
+    while cycles > 0:
 
-    solar_emulator.battery_discharge(
-                                   test_cycle = test_num,
-                                   cell_num = test_cell_number,
-                                   discharge_data_path = data_file_path,
-                                   test_cell = cell_model,
-                                   discharge_voltage = discharging_configs["discharge_voltage"],
-                                   discharge_current = discharging_configs["discharge_current"],
-                                   stop_voltage = discharging_configs["stop_voltage"],
-                                   stop_current = discharging_configs["stop_current"],
-                                   stop_capacity = discharging_configs["stop_capacity"],
-                                   stop_time = discharging_configs["stop_time"]
-    )
+        if test_charge == 1:
 
-    #time.sleep(300)
+            print("==========================Starting Charging using the following Parameters============================")
+            print(charging_configs)
+            logger.info(f'==========================Starting Test {test_num} battery cell model {cell_model} charging using the following parameters at time: {str(datetime.datetime.now())}============================')
+            logger.info(charging_configs)
+            
+            solar_emulator.battery_charge(
+                                        test_cycle = test_num,
+                                        cell_num = test_cell_number,
+                                        charge_data_path = data_file_path,
+                                        test_cell = cell_model,
+                                        charge_voltage = charging_configs["charge_voltage"],
+                                        charge_current = charging_configs["charge_current"],
+                                        stop_voltage = charging_configs["stop_voltage"],
+                                        stop_current = charging_configs["stop_current"],
+                                        stop_capacity = charging_configs["stop_capacity"],
+                                        stop_time = charging_configs["stop_time"]
+                                        )
+            
+            print("=================================================Charging is done ==========================================")
+            logger.info(f'==========================Charging process ended at {str(datetime.datetime.now())}============================')  
 
-    print('=================================================Disharging is done ==========================================')
-    logger.info(f'==========================Discharging process ended at {str(datetime.datetime.now())}============================')
+        #wait for 5 mins before startin gthe discharging process
+        # if test_charge  == 1 and test_discharge == 1:
+        #     print("=================================================Now waiting for 5 mins before starting discharge process ==========================================")
+        #     time.sleep(120)
+            
+        if test_discharge == 1:
+            print("==========================Starting Discharging using the following Parameters============================")
+            print(discharging_configs)
+            logger.info(f'==========================Starting Test {test_num} , for battery cell model {cell_model} discharging using the following parameters at time: {str(datetime.datetime.now())}============================')
+            logger.info(discharging_configs)
+
+            solar_emulator.battery_discharge(
+                                        test_cycle = test_num,
+                                        cell_num = test_cell_number,
+                                        discharge_data_path = data_file_path,
+                                        test_cell = cell_model,
+                                        discharge_voltage = discharging_configs["discharge_voltage"],
+                                        discharge_current = discharging_configs["discharge_current"],
+                                        stop_voltage = discharging_configs["stop_voltage"],
+                                        stop_current = discharging_configs["stop_current"],
+                                        stop_capacity = discharging_configs["stop_capacity"],
+                                        stop_time = discharging_configs["stop_time"]
+            )
+
+            print('=================================================Disharging is done ==========================================')
+            logger.info(f'==========================Discharging process ended at {str(datetime.datetime.now())}============================')
+
+            cycles -=1
+            test_num = '0'+str((int(test_num)+1))
 
 if __name__ == "__main__":
     main()

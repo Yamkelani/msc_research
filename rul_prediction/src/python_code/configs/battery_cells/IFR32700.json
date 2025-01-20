@@ -8,11 +8,14 @@
     },
     
     "test":{
-            "emulator":"USB0::0x2EC7::0x3622::803359022767110013::INSTR",
+            "emulator":"USB0::0x2EC7::0x3622::803359022797450003::INSTR",
+            "emulator1":"USB0::0x2EC7::0x3622::803359022767110013::INSTR",
             "output_path":"C:/Users/yamzi/source_code/msc_research/rul_prediction/src/datasets/battery_experiments_data/experiments_data/",
+            "charge": 1,
+            "discharge": 1,
             "Charge":{
             "charge_voltage" : 3.6,
-            "charge_current": 1.9,
+            "charge_current": 2.5,
             "stop_voltage": 3.65,
             "stop_current": 0.125,
             "stop_time": 14400,
@@ -20,10 +23,10 @@
             },
             "Discharge":{
                 "discharge_voltage" : 2.2,
-                "discharge_current": 4.0,
-                "stop_voltage": 2.0,
+                "discharge_current": 3.0,
+                "stop_voltage": 1.0,
                 "stop_current": 0.125,
-                "stop_time": 9600,
+                "stop_time": 11600,
                 "stop_capacity": 6.0
             }
         }
