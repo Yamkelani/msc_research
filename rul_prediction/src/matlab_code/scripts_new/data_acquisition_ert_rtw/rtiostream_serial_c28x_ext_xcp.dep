@@ -1,0 +1,9 @@
+rtiostream_serial_c28x_ext_xcp.obj: C:/Program\\ Files/MATLAB/R2023b/toolbox/c2b/tic2000_shared/src/rtiostream_serial_c28x_ext_xcp.c
+rtiostream_serial_c28x_ext_xcp.obj: C:/PROGRA~3/MATLAB/tic2000/3P778C~1.INS/TIC28X~1.INS/TI-CGT~1.LTS/include/stdlib.h
+rtiostream_serial_c28x_ext_xcp.obj: C:/PROGRA~3/MATLAB/tic2000/3P778C~1.INS/TIC28X~1.INS/TI-CGT~1.LTS/include/_ti_config.h
+rtiostream_serial_c28x_ext_xcp.obj: C:/PROGRA~3/MATLAB/tic2000/3P778C~1.INS/TIC28X~1.INS/TI-CGT~1.LTS/include/linkage.h
+rtiostream_serial_c28x_ext_xcp.obj: C:/PROGRA~3/MATLAB/tic2000/3P778C~1.INS/TIC28X~1.INS/TI-CGT~1.LTS/include/stdlibf.h
+rtiostream_serial_c28x_ext_xcp.obj: C:/PROGRA~3/MATLAB/tic2000/3P778C~1.INS/TIC28X~1.INS/TI-CGT~1.LTS/include/sys/cdefs.h
+rtiostream_serial_c28x_ext_xcp.obj: C:/PROGRA~3/MATLAB/tic2000/3P778C~1.INS/TIC28X~1.INS/TI-CGT~1.LTS/include/string.h
+rtiostream_serial_c28x_ext_xcp.obj: C:/PROGRA~3/MATLAB/tic2000/3P778C~1.INS/TIC28X~1.INS/TI-CGT~1.LTS/include/xlocale/_string.h
+rtiostream_serial_c28x_ext_xcp.obj: C:/Users/yamzi/source_code/msc_research/rul_prediction/src/matlab_code/scripts/data_acquisition_ert_rtw/rtwtypes.h
