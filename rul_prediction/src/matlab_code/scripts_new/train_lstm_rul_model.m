@@ -25,9 +25,12 @@ currentTime = datestr(now, 'yyyy-mm-dd HH:MM:SS');
 logMessage = sprintf('%s: Starting to run feature engineering script.\n', currentTime);
 fprintf(logFile, logMessage);
 
+<<<<<<< HEAD
+=======
 % Perform your MATLAB computations here
 % For example:
 % result = someFunction();
+>>>>>>> e0e733d7a153902139992e7e4b410e29c9eab237
 
 %Reading in data
 bat_charging_data = readtable(base_path+"/datasets/all_batteries_charging_data.csv");
