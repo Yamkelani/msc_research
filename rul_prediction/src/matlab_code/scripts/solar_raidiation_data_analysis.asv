@@ -1,0 +1,17 @@
+summer_data = readtable("C:\Users\yamzi\source_code\msc_research\rul_prediction\src\datasets\weather_data\summer_weather_data.csv");
+plot(summer_data.Date, summer_data.Irra)
+
+winter_data = readtable("C:\Users\yamzi\source_code\msc_research\rul_prediction\src\datasets\weather_data\winter_weather_data.csv");
+plot(winter_data.Date, winter_data.Irra)
+
+autum_data = readtable("C:\Users\yamzi\source_code\msc_research\rul_prediction\src\datasets\weather_data\autum_weather_data.csv");
+plot(autum_data.Date, autum_data.Irra)
+
+spring_data = readtable("C:\Users\yamzi\source_code\msc_research\rul_prediction\src\datasets\weather_data\spring_weather_data.csv");
+plot(spring_data.Date, spring_data.Irra)
+
+winter_data = readtable("C:\Users\yamzi\source_code\msc_research\rul_prediction\src\datasets\weather_data\winter_weather_data.csv");
+plot(winter_data.Date, winter_data.Irra)
+
+w_data = []
+

@@ -1,0 +1,30 @@
+{
+"battery":{
+    "Manufacturer": "Samsung",
+    "Type": "Lithium ion",
+    "Model": "ICR18650",
+    "Nominal_Capacity": "2600mAH",
+    "Nominal_Voltage": 3.7
+},
+
+"test":{
+        "emulator":"USB0::0x2EC7::0x3622::803359022767110013::INSTR",
+        "output_path":"C:/Users/yamzi/source_code/msc_research/rul_prediction/src/datasets/battery_experiments_data/experiments_data/",
+        "Charge":{
+        "charge_voltage" : 4.2,
+        "charge_current": 2.5,
+        "stop_voltage": 4.4,
+        "stop_current": 0.02,
+        "stop_time": 9000,
+        "stop_capacity": 2.6
+        },
+        "Discharge":{
+            "discharge_voltage" : 2.8,
+            "discharge_current": 2.0,
+            "stop_voltage": 2.75,
+            "stop_current": 0.02,
+            "stop_time": 9000,
+            "stop_capacity": 2.6
+        }
+    }
+}
