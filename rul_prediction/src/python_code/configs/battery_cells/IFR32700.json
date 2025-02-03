@@ -15,7 +15,7 @@
             "discharge": 1,
             "Charge":{
             "charge_voltage" : 3.6,
-            "charge_current": 4.0,
+            "charge_current": 2.0,
             "stop_voltage": 3.65,
             "stop_current": 0.125,
             "stop_time": 14400,
