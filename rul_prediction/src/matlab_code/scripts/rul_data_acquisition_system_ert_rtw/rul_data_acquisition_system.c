@@ -9,7 +9,7 @@
  *
  * Model version                  : 3.0
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Fri Jan 31 17:14:08 2025
+ * C/C++ source code generated on : Sat Feb  8 09:42:51 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -84,14 +84,14 @@ void rul_data_acquisition_system_initialize(void)
   /* initialize real-time model */
   (void) memset((void *)rul_data_acquisition_system_M, 0,
                 sizeof(RT_MODEL_rul_data_acquisition_T));
-  rtmSetTFinal(rul_data_acquisition_system_M, 150000.0);
+  rtmSetTFinal(rul_data_acquisition_system_M, 180000.0);
   rul_data_acquisition_system_M->Timing.stepSize0 = 5.0;
 
   /* External mode info */
-  rul_data_acquisition_system_M->Sizes.checksums[0] = (1803790547U);
-  rul_data_acquisition_system_M->Sizes.checksums[1] = (586978934U);
-  rul_data_acquisition_system_M->Sizes.checksums[2] = (3196929974U);
-  rul_data_acquisition_system_M->Sizes.checksums[3] = (986575891U);
+  rul_data_acquisition_system_M->Sizes.checksums[0] = (2577391656U);
+  rul_data_acquisition_system_M->Sizes.checksums[1] = (4057650692U);
+  rul_data_acquisition_system_M->Sizes.checksums[2] = (1674784191U);
+  rul_data_acquisition_system_M->Sizes.checksums[3] = (3872679501U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -104,7 +104,7 @@ void rul_data_acquisition_system_initialize(void)
       &rul_data_acquisition_system_M->SpecialInfo.mappingInfo);
     rteiSetChecksumsPtr(rul_data_acquisition_system_M->extModeInfo,
                         rul_data_acquisition_system_M->Sizes.checksums);
-    rteiSetTFinalTicks(rul_data_acquisition_system_M->extModeInfo, 30000);
+    rteiSetTFinalTicks(rul_data_acquisition_system_M->extModeInfo, 36000);
   }
 
   /* block I/O */

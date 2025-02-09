@@ -9,7 +9,7 @@
  *
  * Model version                  : 3.0
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Fri Jan 31 17:14:08 2025
+ * C/C++ source code generated on : Sat Feb  8 09:42:51 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -73,7 +73,7 @@ int main(void)
   rtmSetErrorStatus(rul_data_acquisition_system_M, 0);
 
   /* Set Final Simulation Time in Ticks */
-  errorCode = extmodeSetFinalSimulationTime((extmodeSimulationTime_T) 30000);
+  errorCode = extmodeSetFinalSimulationTime((extmodeSimulationTime_T) 36000);
 
   /* Parse External Mode command line arguments */
   errorCode = extmodeParseArgs(0, NULL);
