@@ -22,8 +22,8 @@
             "stop_capacity": 6.0
             },
             "Discharge":{
-                "discharge_voltage" : 2.2,
-                "discharge_current": 3.0,
+                "discharge_voltage" : 2.0,
+                "discharge_current": 6.0,
                 "stop_voltage": 1.0,
                 "stop_current": 0.125,
                 "stop_time": 11600,
