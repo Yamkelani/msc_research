@@ -298,7 +298,7 @@ def main(**kwaargs):
     test_charge = config["test"]["charge"]
     test_discharge = config["test"]["discharge"]
 
-    cycles = 15
+    cycles = 5
 
     while cycles > 0:
 
