@@ -1,4 +1,6 @@
 """
+This code creates an xGboost model , trains and test it. Then performs hyperamete tuning to obtain the 
+best performing paramters for this model, and uses the best paramters to re train the model.
 """
 
 from sklearn.metrics import accuracy_score, mean_squared_error, mean_absolute_error
