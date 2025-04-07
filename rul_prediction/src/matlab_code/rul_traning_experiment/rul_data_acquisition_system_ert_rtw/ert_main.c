@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'rul_data_acquisition_system'.
  *
- * Model version                  : 3.0
+ * Model version                  : 3.1
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Feb 11 20:08:39 2025
+ * C/C++ source code generated on : Sat Mar  1 20:01:41 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -73,7 +73,7 @@ int main(void)
   rtmSetErrorStatus(rul_data_acquisition_system_M, 0);
 
   /* Set Final Simulation Time in Ticks */
-  errorCode = extmodeSetFinalSimulationTime((extmodeSimulationTime_T) 40000);
+  errorCode = extmodeSetFinalSimulationTime((extmodeSimulationTime_T) 18000);
 
   /* Parse External Mode command line arguments */
   errorCode = extmodeParseArgs(0, NULL);

@@ -7,9 +7,9 @@
  *
  * Code generation for model "rul_data_acquisition_system".
  *
- * Model version              : 3.0
+ * Model version              : 3.1
  * Simulink Coder version : 24.2 (R2024b) 21-Jun-2024
- * C source code generated on : Tue Feb 11 20:08:39 2025
+ * C source code generated on : Sat Mar  1 20:01:41 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
